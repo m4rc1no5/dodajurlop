@@ -1,3 +1,4 @@
-# dodajurlop
+dodajurlop
+==========
 
-Aplikacja napisana w Symfony 2.7
+A Symfony project created on September 5, 2015, 10:11 pm.
