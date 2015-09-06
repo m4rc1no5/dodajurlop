@@ -32,8 +32,7 @@ class User extends BaseUser
     /**
      * @var string
      *
-     * @ORM\Column(type="string", length=256)
-     *
+     * @ORM\Column(type="string", length=256, nullable=true)
      */
     protected $komentarz;
 
