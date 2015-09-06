@@ -11,6 +11,7 @@ before_script:
   - composer self-update
   - composer global require phpunit/phpunit --no-update
   - cp app/config/parameters.yml.dist app/config/parameters.yml
+  - composer install
   - export ADDITIONAL_PATH=`php -i | grep -F --color=never 'Scan this dir for additional .ini files'`
   - echo 'xdebug.max_nesting_level=9999' | sudo tee ${ADDITIONAL_PATH:42}/symfony2.ini
 
