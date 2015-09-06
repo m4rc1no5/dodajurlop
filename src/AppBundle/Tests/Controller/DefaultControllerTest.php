@@ -14,5 +14,6 @@ class DefaultControllerTest extends WebTestCase
 
         $this->assertEquals(200, $client->getResponse()->getStatusCode());
         $this->assertContains('Welcome to Symfony', $crawler->filter('#container h1')->text());
+        $this->assertContains("What's next?", $crawler->filter('#container h2')->text());
     }
 }
