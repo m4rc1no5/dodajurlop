@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+git pull
+
+if [ ! -e "composer.phar" ]; then
+	echo 'Brak composera. Instaluję...';
+	php -r "readfile('https://getcomposer.org/installer');" | php
+fi
+
+php composer.phar self-update
+php composer.phar install -o
+app/console cache:clear --env=dev
+app/console cache:clear --env=prod
+app/console assets:install --symlink
