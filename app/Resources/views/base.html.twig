@@ -18,7 +18,24 @@
     <a class="navbar-brand" href="">dodajurlop.pl</a>
 </nav>
 
-{% block body %}{% endblock %}
+<div class="jumbotron">
+    <div class="container">
+        <h1>Rejestruj swój urlop</h1>
+        <p>Zaplanuj i zanotuj swoje dni urlopowe - miej nad tym pełną kontrolę</p>
+        <p>
+            <a href="{{ path('fos_user_registration_register') }}" class="btn btn-primary">Zarejestruj się</a>
+            <a href="{{ path('fos_user_security_login') }}" class="btn btn-success">Zaloguj się</a>
+        </p>
+    </div>
+</div>
+
+<div class="container">
+    {% block body %}{% endblock %}
+
+    <footer>
+        <p>&copy; <a href="http://marceen.pl" target="_blank">marceen.pl</a> 2015</p>
+    </footer>
+</div>
 
 <!-- jQuery first, then Bootstrap JS. -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
