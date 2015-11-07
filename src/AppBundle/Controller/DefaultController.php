@@ -16,7 +16,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 class DefaultController extends Controller
 {
     /**
-     * @Route("/", name="default")
+     * @Route("/", name="start")
      * @Template()
      *
      * @return array

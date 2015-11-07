@@ -7,27 +7,34 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge">
 
     <title>{% block title %}Welcome!{% endblock %}</title>
-    {% block stylesheets %}{% endblock %}
+
     <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdn.rawgit.com/twbs/bootstrap/v4-dev/dist/css/bootstrap.css">
+
+    {% block stylesheets %}
+        <link rel="stylesheet" href="{{ asset('bundles/app/css/base.css') }}">
+        {% block stylesheet %}{% endblock %}
+    {% endblock %}
 </head>
 <body>
 <nav class="navbar navbar-light bg-faded">
-    <a class="navbar-brand" href="">dodajurlop.pl</a>
+    <a class="navbar-brand" href="{{ path('start') }}">dodajurlop.pl</a>
 </nav>
 
-<div class="jumbotron">
-    <div class="container">
-        <h1>{{ 'base.header.title'|trans }}</h1>
-        <p>{{ 'base.header.subtitle'|trans }}</p>
-        <p>
-            <a href="{{ path('fos_user_registration_register') }}" class="btn btn-primary">{{ 'layout.register'|trans }}</a>
-            <a href="{{ path('fos_user_security_login') }}" class="btn btn-success">{{ 'layout.login'|trans }}</a>
-        </p>
+{% block header %}
+    <div class="jumbotron">
+        <div class="container">
+            <h1>{{ 'base.header.title'|trans }}</h1>
+            <p>{{ 'base.header.subtitle'|trans }}</p>
+            <p>
+                <a href="{{ path('fos_user_registration_register') }}" class="btn btn-primary">{{ 'layout.register'|trans }}</a>
+                <a href="{{ path('fos_user_security_login') }}" class="btn btn-success">{{ 'layout.login'|trans }}</a>
+            </p>
+        </div>
     </div>
-</div>
+{% endblock %}
 
 <div class="container">
     {% block body %}{% endblock %}
