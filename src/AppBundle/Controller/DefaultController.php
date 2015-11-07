@@ -12,6 +12,8 @@ namespace AppBundle\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\Translation\MessageSelector;
+use Symfony\Component\Translation\Translator;
 
 class DefaultController extends Controller
 {
@@ -23,8 +25,6 @@ class DefaultController extends Controller
      */
     public function indexAction()
     {
-        return [
-            'name' => 'kabooom!'
-        ];
+        return [];
     }
 }

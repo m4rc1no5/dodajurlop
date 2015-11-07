@@ -1,0 +1,9 @@
+#FOSUserBundle
+layout:
+  login: Zaloguj się
+  register: Zarejestruj się
+
+base:
+  header:
+    title: Rejestruj swój urlop
+    subtitle: Zaplanuj i zanotuj swoje dni urlopowe - miej nad tym pełną kontrolę
