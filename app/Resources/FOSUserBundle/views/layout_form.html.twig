@@ -1,0 +1,14 @@
+{% block loginContainer %}
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-8 col-sm-offset-2 text-center">
+                <h1 style="margin: 40px;">{% block loginHeader %}{% endblock %}</h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-8 col-sm-offset-2">
+                {% block loginBody %}{% endblock %}
+            </div>
+        </div>
+    </div>
+{% endblock %}

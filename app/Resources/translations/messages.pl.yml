@@ -1,7 +1,9 @@
 #FOSUserBundle
 layout:
   login: Zaloguj się
+  login_form: Formularz logowania
   register: Zarejestruj się
+  register_form: Formularz rejestracji
 
 base:
   header:
