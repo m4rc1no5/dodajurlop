@@ -26,8 +26,10 @@
 {% block header %}
     <div class="jumbotron">
         <div class="container">
-            <h1>{{ 'base.header.title'|trans }}</h1>
-            <p>{{ 'base.header.subtitle'|trans }}</p>
+            <h1 class="display-1">{{ 'base.header.title'|trans }}</h1>
+            <p class="lead">{{ 'base.header.subtitle'|trans }}</p>
+            <hr class="m-y-md">
+            <p>Zarejestruj się za darmo.</p>
             <p>
                 <a href="{{ path('fos_user_registration_register') }}" class="btn btn-primary">{{ 'layout.register'|trans }}</a>
                 <a href="{{ path('fos_user_security_login') }}" class="btn btn-success">{{ 'layout.login'|trans }}</a>
