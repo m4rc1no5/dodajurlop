@@ -1,0 +1,18 @@
+{% extends '::base.html.twig' %}
+
+{% block header %}{% endblock %}
+
+{% block navbar %}
+    <nav class="navbar navbar-dark bg-inverse">
+        <a class="navbar-brand" href="{{ path('dashboard') }}">dodajurlop.pl</a>
+        {% include '::dashboard_menu.html.twig' %}
+    </nav>
+{% endblock %}
+
+{% block body %}
+<div class="container">
+    <div class="main_dashboard">
+        {% block main %}{% endblock %}
+    </div>
+</div>
+{% endblock %}

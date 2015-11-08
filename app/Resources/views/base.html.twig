@@ -19,9 +19,11 @@
     {% endblock %}
 </head>
 <body>
+{% block navbar %}
 <nav class="navbar navbar-light bg-faded">
     <a class="navbar-brand" href="{{ path('start') }}">dodajurlop.pl</a>
 </nav>
+{% endblock %}
 
 {% block header %}
     <div class="jumbotron">
