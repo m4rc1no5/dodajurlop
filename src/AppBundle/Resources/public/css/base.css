@@ -1,3 +1,9 @@
 body {
     background-color: #eee;
 }
+
+footer, footer a {
+    text-align: center;
+    margin-top: 30px;
+    color: rgba(34, 34, 34, 0.55);
+}
