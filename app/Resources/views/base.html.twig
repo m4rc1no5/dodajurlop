@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
 
-    <title>{% block title %}Welcome!{% endblock %}</title>
+    <title>{% block title %}{{ application_name }}{% endblock %}</title>
 
     <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
 
@@ -21,7 +21,7 @@
 <body>
 {% block navbar %}
 <nav class="navbar navbar-light bg-faded">
-    <a class="navbar-brand" href="{{ path('start') }}">dodajurlop.pl</a>
+    <a class="navbar-brand" href="{{ path('start') }}">{{ application_name }}</a>
 </nav>
 {% endblock %}
 
@@ -31,7 +31,7 @@
             <h1 class="display-1">{{ 'base.header.title'|trans }}</h1>
             <p class="lead">{{ 'base.header.subtitle'|trans }}</p>
             <hr class="m-y-md">
-            <p>Zarejestruj się za darmo.</p>
+            <p>{{ 'base.header.text'|trans }}</p>
             <p>
                 <a href="{{ path('fos_user_registration_register') }}" class="btn btn-primary">{{ 'layout.register'|trans }}</a>
                 <a href="{{ path('fos_user_security_login') }}" class="btn btn-success">{{ 'layout.login'|trans }}</a>
