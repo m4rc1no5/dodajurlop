@@ -8,6 +8,7 @@
 
 namespace AppBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -25,4 +26,16 @@ class ZwolnienieRodzaj extends Entity
      * @ORM\Column(type="string", length=128)
      */
     protected $nazw;
+
+    /**
+     * @var ArrayCollection
+     *
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Zwolnienie", mappedBy="zwolnienieRodzaj")
+     */
+    protected $zwolnienia;
+
+    public function __construct()
+    {
+        $this->zwolnienia = new ArrayCollection();
+    }
 }

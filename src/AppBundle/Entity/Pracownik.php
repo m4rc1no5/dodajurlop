@@ -8,6 +8,7 @@
 
 namespace AppBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -49,10 +50,17 @@ class Pracownik extends Entity
     protected $ilosc_dni_wolnych;
 
     /**
-     * @var Organizacja
+     * @var User
      *
-     * @ORM\ManyToOne(targetEntity="Organizacja", inversedBy="pracownicy")
-     * @ORM\JoinColumn(name="organizacja_id", referencedColumnName="id")
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\User", inversedBy="pracownicy")
+     * @ORM\JoinColumn(name="user_id", referencedColumnName="id")
      */
-    protected $organizacja;
+    protected $user;
+
+    /**
+     * @var ArrayCollection
+     *
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Zwolnienie", mappedBy="pracownik")
+     */
+    protected $zwolnienia;
 }

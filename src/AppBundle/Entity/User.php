@@ -36,4 +36,8 @@ class User extends BaseUser
      */
     protected $komentarz;
 
+    protected $organizacje;
+
+    protected $pracownicy;
+
 }

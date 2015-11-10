@@ -36,14 +36,22 @@ class Organizacja extends Entity
     protected $pnazwa;
 
     /**
+     * @var User
+     *
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\User", inversedBy="organizacje")
+     * @ORM\JoinColumn(name="fos_user_id", referencedColumnName="id")
+     */
+    protected $user;
+
+    /**
      * @var ArrayCollection
      *
-     * @ORM\OneToMany(targetEntity="Pracownik", mappedBy="organizacja")
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Zwolnienie", mappedBy="organizacja")
      */
-    protected $pracownicy;
+    protected $zwolnienia;
 
     public function __construct()
     {
-        $this->pracownicy = new ArrayCollection();
+        $this->zwolnienia = new ArrayCollection();
     }
 }
