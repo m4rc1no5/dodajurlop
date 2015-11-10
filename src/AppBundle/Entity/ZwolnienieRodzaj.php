@@ -38,4 +38,21 @@ class ZwolnienieRodzaj extends Entity
     {
         $this->zwolnienia = new ArrayCollection();
     }
+
+    /**
+     * @return string
+     */
+    public function getNazwa()
+    {
+        return $this->nazw;
+    }
+
+    /**
+     * @param string $nazw
+     */
+    public function setNazwa($nazw)
+    {
+        $this->nazw = $nazw;
+    }
+
 }
