@@ -30,8 +30,6 @@ class LoadZwolnienieRodzajData implements FixtureInterface
     {
         foreach($this->ar_rodzaje_zwolnien as $ar_rodzaj_zwolnienia) {
             $zwolnienieRodzaj = new ZwolnienieRodzaj();
-            $zwolnienieRodzaj->setDodata(new \DateTime());
-            $zwolnienieRodzaj->setModata(new \DateTime());
             $zwolnienieRodzaj->setLicznik($ar_rodzaj_zwolnienia[0]);
             $zwolnienieRodzaj->setNazwa($ar_rodzaj_zwolnienia[1]);
 
