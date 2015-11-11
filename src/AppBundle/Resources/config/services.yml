@@ -4,3 +4,11 @@ services:
     tags:
       - { name: doctrine.event_listener, event: prePersist }
       - { name: doctrine.event_listener, event: preUpdate }
+
+  app.command.organizacja.dodaj:
+    class: AppBundle\CommandBus\Organizacja\DodajOrganizacjeCommand
+    arguments: [@security.token_storage]
+
+  app.controller.dashboard:
+    class: AppBundle\Controller\DashboardController
+    arguments: [@app.command.organizacja.dodaj]

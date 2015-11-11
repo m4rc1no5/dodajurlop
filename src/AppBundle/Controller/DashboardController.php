@@ -8,7 +8,7 @@
 
 namespace AppBundle\Controller;
 
-
+use AppBundle\CommandBus\Organizacja\DodajOrganizacjeCommand;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -17,10 +17,22 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
  * Class DashboardController
  * @package AppBundle\Controller
  *
- * @Route("/dashboard")
+ * @Route("/dashboard", service="app.controller.dashboard")
  */
 class DashboardController extends Controller
 {
+
+    /** @var DodajOrganizacjeCommand */
+    protected $dodajOrganizacjeCommand;
+
+    /**
+     * DashboardController constructor.
+     * @param DodajOrganizacjeCommand $dodajOrganizacjeCommand
+     */
+    public function __construct(DodajOrganizacjeCommand $dodajOrganizacjeCommand)
+    {
+        $this->dodajOrganizacjeCommand = $dodajOrganizacjeCommand;
+    }
 
     /**
      * @Route("/", name="dashboard")
@@ -30,6 +42,8 @@ class DashboardController extends Controller
      */
     public function indexAction()
     {
-        return [];
+        return [
+            'user' => $this->dodajOrganizacjeCommand
+        ];
     }
 }
