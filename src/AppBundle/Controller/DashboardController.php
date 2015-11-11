@@ -22,18 +22,6 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 class DashboardController extends Controller
 {
 
-    /** @var DodajOrganizacjeCommand */
-    protected $dodajOrganizacjeCommand;
-
-    /**
-     * DashboardController constructor.
-     * @param DodajOrganizacjeCommand $dodajOrganizacjeCommand
-     */
-    public function __construct(DodajOrganizacjeCommand $dodajOrganizacjeCommand)
-    {
-        $this->dodajOrganizacjeCommand = $dodajOrganizacjeCommand;
-    }
-
     /**
      * @Route("/", name="dashboard")
      * @Template()
@@ -43,7 +31,7 @@ class DashboardController extends Controller
     public function indexAction()
     {
         return [
-            'user' => $this->dodajOrganizacjeCommand
+            'user' => ''
         ];
     }
 }

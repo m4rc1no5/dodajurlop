@@ -11,4 +11,6 @@ services:
 
   app.controller.dashboard:
     class: AppBundle\Controller\DashboardController
+  app.controller.organizacja:
+    class: AppBundle\Controller\OrganizacjaController
     arguments: [@app.command.organizacja.dodaj]
