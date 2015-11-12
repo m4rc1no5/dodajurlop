@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <!-- Required meta tags always come first -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+    <title>{% block title %}{{ application_name }}{% endblock %}</title>
+
+    <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
+
+    {% block stylesheets %}
+        <link rel="stylesheet" href="{{ asset('bundles/app/css/base.css') }}">
+        {% block stylesheet %}{% endblock %}
+    {% endblock %}
+</head>
+<body>
+{% block navbar %}
+<nav class="navbar navbar-light bg-faded">
+    <a class="navbar-brand" href="{{ path('start') }}">{{ application_name }}</a>
+</nav>
+{% endblock %}
+
+{% block header %}
+    <div class="jumbotron">
+        <div class="container">
+            <h1 class="display-1">{{ 'base.header.title'|trans }}</h1>
+            <p class="lead">{{ 'base.header.subtitle'|trans }}</p>
+            <hr class="m-y-md">
+            <p>{{ 'base.header.text'|trans }}</p>
+            <p>
+                <a href="{{ path('fos_user_registration_register') }}" class="btn btn-primary">{{ 'layout.register'|trans }}</a>
+                <a href="{{ path('fos_user_security_login') }}" class="btn btn-success">{{ 'layout.login'|trans }}</a>
+            </p>
+        </div>
+    </div>
+{% endblock %}
+
+<div class="container">
+    {% block body %}{% endblock %}
+
+    <footer>
+        <p>&copy; <a href="http://marceen.pl" target="_blank">marceen.pl</a> 2015</p>
+    </footer>
+</div>
+
+<!-- jQuery first, then Bootstrap JS. -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" integrity="sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ==" crossorigin="anonymous"></script>
+
+{% block javascripts %}{% endblock %}
+</body>
+</html>
