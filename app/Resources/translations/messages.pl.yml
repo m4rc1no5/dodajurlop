@@ -1,4 +1,4 @@
-start: start
+dashboard: dashboard
 
 #FOSUserBundle
 layout:
@@ -18,8 +18,9 @@ base:
 #AppBundle
 app:
   organizacja:
-    title: organizacja
     dodaj: dodaj nową organizację
+  organizacje:
+    title: organizacje
   pracownicy:
     title: pracownicy
   zwolnienia:
