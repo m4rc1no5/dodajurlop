@@ -17,6 +17,73 @@ Table of contents
 Installation
 ------------
 
+### Clone the project
+
+```
+git@github.com:m4rc1no5/dodajurlop.git
+```
+
+### Update packages
+
+```
+cd dodajurlop
+curl -sS https://getcomposer.org/installer | php
+php composer.phar install
+```
+
+### Setting up .htaccess (if You use Apache)
+
+If You use prod machine:
+
+```bash
+cp web/.htaccess.prod web/.htaccess
+```
+
+If You use dev machine:
+
+```bash
+cp web/.htaccess.dev web/.htaccess
+```
+
+### Setting up Nginx config (if You use Nginx)
+
+```
+server {
+    server_name dodajurlop.lh www.dodajurlop.lh;
+    root /path/to/web/folder;
+
+    location / {
+        # try to serve file directly, fallback to app.php
+        try_files $uri /app_dev.php$is_args$args;
+	    #try_files $uri /app.php;
+    }
+    # DEV
+    # This rule should only be placed on your development environment
+    # In production, don't include this and don't deploy app_dev.php or config.php
+    location ~ ^/(app_dev|config)\.php(/|$) {
+        fastcgi_pass unix:/var/run/php5-fpm.sock;
+	    #fastcgi_pass 127.0.0.1:9000;
+        fastcgi_split_path_info ^(.+\.php)(/.*)$;
+        include fastcgi_params;
+        fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+    }
+    # PROD
+    #location ~ ^/app\.php(/|$) {
+    #    fastcgi_pass unix:/var/run/php5-fpm.sock;
+    #    fastcgi_split_path_info ^(.+\.php)(/.*)$;
+    #    include fastcgi_params;
+    #    fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+    #    # Prevents URIs that include the front controller. This will 404:
+    #    # http://domain.tld/app.php/some-path
+    #    # Remove the internal directive to allow URIs like this
+    #    internal;
+    #}
+
+    error_log /var/log/nginx/dodajurlop_error.log;
+    access_log /var/log/nginx/dodajurlop_access.log;
+}
+```
+
 ### Create database
 
 To create database in PostgreSQL first You must login to database:
@@ -40,7 +107,14 @@ To connect with database and send email You must modify file parameters.yml
 ### Create database schema
 
 ```
-app/console doctrine:schema:update --force
+app/console doctrine:schema:create
+```
+
+### Create and activate user
+
+```
+php app/console fos:user:create
+php app/console fos:user:activate
 ```
 
 ### Setting up permissions
