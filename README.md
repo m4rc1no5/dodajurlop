@@ -10,8 +10,7 @@ Table of contents
 -----------------
 
 1. [Installation](#installation)
-2. [Update project](#update)
-3. [Setting up permissions](#permission)
+2. [Setting up permissions](#permission)
 
 <a name="installation"></a>
 Installation
@@ -116,24 +115,6 @@ app/console doctrine:schema:create
 php app/console fos:user:create
 php app/console fos:user:activate
 ```
-
-### Setting up permissions
-
-Folders app/cache and app/logs directories must be writable - see [Setting up permissions](#permission)
-
-<a name="update"></a>
-Update project
---------------
-
-### One command to update project
-
-If You want update this project You must launch from console: 
-
-```
-bin/aktualizacja
-```
-
-This command update project, download and update Your composer.phar and clear the cache. 
 
 ### Setting up permissions
 
