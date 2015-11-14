@@ -1,5 +1,16 @@
 {% extends '::dashboard.html.twig' %}
 
 {% block main %}
-    :)
+    <a class="btn btn-primary" id="dodaj_organizacje">Dodaj nową organizację</a>
+{% endblock %}
+
+{% block javascripts %}
+    <script>
+        $(document).on("click", "#dodaj_organizacje", function(e){
+            bootbox.dialog({
+                message: "Hello world!",
+                title: "Custom title"
+            });
+        });
+    </script>
 {% endblock %}
