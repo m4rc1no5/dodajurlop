@@ -6,6 +6,9 @@
 
 {% block javascripts %}
     <script>
+        bootbox.setDefaults({
+            onEscape: true
+        });
         $(document).on("click", "#dodaj_organizacje", function(e){
             bootbox.dialog({
                 message: "Hello world!",
