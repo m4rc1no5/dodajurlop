@@ -12,6 +12,7 @@ namespace AppBundle\Controller;
 use AppBundle\CommandBus\Organizacja\DodajOrganizacjeCommand;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
+use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 /**
  * Class OrganizacjaController
@@ -19,7 +20,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
  *
  * @Route("/organizacja", service="app.controller.organizacja")
  */
-class OrganizacjaController
+class OrganizacjaController extends Controller
 {
     /** @var DodajOrganizacjeCommand */
     protected $dodajOrganizacjeCommand;
@@ -53,6 +54,10 @@ class OrganizacjaController
      */
     public function dodajAction()
     {
-        return [];
+        $form = $this->createForm('organizacja', $this->dodajOrganizacjeCommand);
+
+        return [
+            'form' => $form->createView()
+        ];
     }
 }

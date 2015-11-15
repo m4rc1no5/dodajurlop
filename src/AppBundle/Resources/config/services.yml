@@ -9,8 +9,14 @@ services:
     class: AppBundle\CommandBus\Organizacja\DodajOrganizacjeCommand
     arguments: [@security.token_storage]
 
+  app.form.type.organizacja:
+    class: AppBundle\Form\Type\OrganizacjaType
+    tags: [{ name: form.type, alias: organizacja }]
+
   app.controller.dashboard:
     class: AppBundle\Controller\DashboardController
   app.controller.organizacja:
     class: AppBundle\Controller\OrganizacjaController
     arguments: [@app.command.organizacja.dodaj]
+    calls:
+      - [setContainer, [@service_container]]
