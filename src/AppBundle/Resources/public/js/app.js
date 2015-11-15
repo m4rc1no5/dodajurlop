@@ -15,6 +15,17 @@
         }
     };
 
+    function confirm (obj, onOkCallback) {
+        var $obj = $(obj);
+
+        if ($obj.data('confirm')) {
+            //alertify.confirm($obj.data('confirm'), onOkCallback);
+            onOkCallback();
+        } else {
+            onOkCallback();
+        }
+    }
+
     function processJSON (data) {
         if (typeof data != 'object' ) {
             return false;
@@ -49,6 +60,16 @@
                     app.initialized = true;
 
                     defaults.bootbox();
+
+                    //zabieg za pomocą którego możliwe jest wyświetlenie okienka bootbox po załadowaniu
+                    $(this).ajaxStop(function () {
+                        $('.modal-dialog').show();
+                        app.init();
+                    });
+
+                    app.listener.bootbox();
+
+                    app.init();
                 }
             });
         },
@@ -109,6 +130,31 @@
 
             app.modal.submit();
         }
+    };
+
+    App.prototype.listener = {
+
+        /** [data-toggle=bootbox|bootbox-replace] Wczytuje response w modalu za pomocą bootboxa */
+        bootbox: function() {
+            $(document).on('click', 'button[data-toggle^="bootbox"], a[data-toggle^="bootbox"]', function () {
+                var $button = $(this);
+
+                confirm($(this), function () {
+                    var uri = $button.hasAttr('href') ? $button.attr('href') : $button.data('uri');
+
+                    if ($button.data('toggle').indexOf('bootbox-replace') > -1) {
+                        /** Cały modal zostanie podmieniony zawartością z URI */
+                        app.bootbox(uri, $button.data('width'));
+                    } else {
+                        /** Zawartość z URI zostanie załadowane w miejsce modal-body  */
+                        app.bootbox(uri, $button.data('width'), $button.data('title'));
+                    }
+                });
+
+                return false;
+            });
+        }
+
     };
 
     App.prototype.modal = {

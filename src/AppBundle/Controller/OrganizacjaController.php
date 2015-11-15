@@ -43,4 +43,16 @@ class OrganizacjaController
     {
         return [];
     }
+
+
+    /**
+     * @Route("/dodaj", name="organizacja.dodaj")
+     * @Template()
+     *
+     * @return array
+     */
+    public function dodajAction()
+    {
+        return [];
+    }
 }

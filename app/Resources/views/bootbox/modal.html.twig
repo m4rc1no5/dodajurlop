@@ -1,0 +1,27 @@
+{% block modal %}
+    <div class="modal-content">
+        {% block modalContent %}
+            <div class="modal-header">
+                <button aria-hidden="true" data-dismiss="modal" class="bootbox-close-button close" type="button">&times;</button>
+
+                <h4 class="modal-title">
+                    {% block modalTitle %}{% endblock %}
+                </h4>
+            </div>
+
+            <div class="modal-body">
+                <div class="bootbox-body">
+                    {% block modalBody %}{% endblock %}
+                </div>
+            </div>
+
+            {% if footer is not defined or footer %}
+                <div class="modal-footer">
+                    {% block modalFooter %}{% endblock %}
+                </div>
+            {% endif %}
+        {% endblock %}
+    </div>
+
+    {% block modalAssets %}{% endblock %}
+{% endblock %}
