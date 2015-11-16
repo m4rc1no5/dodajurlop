@@ -13,6 +13,7 @@ use AppBundle\CommandBus\Organizacja\DodajOrganizacjeCommand;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\Request;
 
 /**
  * Class OrganizacjaController
@@ -50,11 +51,13 @@ class OrganizacjaController extends Controller
      * @Route("/dodaj", name="organizacja.dodaj")
      * @Template()
      *
+     * @param Request $request
      * @return array
      */
-    public function dodajAction()
+    public function dodajAction(Request $request)
     {
         $form = $this->createForm('organizacja', $this->dodajOrganizacjeCommand);
+        $form->handleRequest($request);
 
         return [
             'form' => $form->createView()
