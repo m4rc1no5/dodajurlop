@@ -1,4 +1,7 @@
 dashboard: dashboard
+zapisz: Zapisz
+Nazwa: Nazwa
+Pnazwa: Pełna nazwa
 
 #FOSUserBundle
 layout:

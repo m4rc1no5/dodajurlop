@@ -18,9 +18,7 @@ class OrganizacjaType extends AbstractType
     {
         $builder
             ->add('nazwa', 'text')
-            ->add('pnazwa', 'text', [
-                'label' => 'Pełna nazwa'
-            ])
+            ->add('pnazwa', 'text')
         ;
     }
 
