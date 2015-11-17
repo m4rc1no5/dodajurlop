@@ -1,5 +1,6 @@
 {% extends '::dashboard.html.twig' %}
 
 {% block main %}
+    <div>{{ date.format('Y-m-d H:i:s') }}</div>
     <a class="btn btn-primary" data-toggle="bootbox-replace" data-width="800" href="{{ path('organizacja.dodaj') }}">{{ 'app.organizacja.dodaj'|trans|capitalize }}</a>
 {% endblock %}

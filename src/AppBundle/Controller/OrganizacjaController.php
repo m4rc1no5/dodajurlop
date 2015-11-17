@@ -10,6 +10,7 @@ namespace AppBundle\Controller;
 
 
 use AppBundle\CommandBus\Organizacja\DodajOrganizacjeCommand;
+use AppBundle\Response\RefererRedirectResponse;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -43,7 +44,10 @@ class OrganizacjaController extends Controller
      */
     public function indexAction()
     {
-        return [];
+        $date = new \DateTime();
+        return [
+            'date' => $date
+        ];
     }
 
 
@@ -58,6 +62,10 @@ class OrganizacjaController extends Controller
     {
         $form = $this->createForm('organizacja', $this->dodajOrganizacjeCommand);
         $form->handleRequest($request);
+
+        if($form->isValid()) {
+            //return new RefererRedirectResponse($request);
+        }
 
         return [
             'form' => $form->createView()
