@@ -24,7 +24,8 @@
         "twbs/bootstrap": "v4.0.0-alpha",
         "symfony/translation": "^2.7",
         "doctrine/doctrine-fixtures-bundle": "^2.3",
-        "simple-bus/symfony-bridge": "^4.1"
+        "simple-bus/symfony-bridge": "^4.1",
+        "friendsofsymfony/jsrouting-bundle": "^1.5"
     },
     "require-dev": {
         "sensio/generator-bundle": "~2.3",
