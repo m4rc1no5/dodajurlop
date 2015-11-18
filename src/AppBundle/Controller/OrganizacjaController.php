@@ -64,7 +64,7 @@ class OrganizacjaController extends Controller
         $form->handleRequest($request);
 
         if($form->isValid()) {
-            //return new RefererRedirectResponse($request);
+            return new RefererRedirectResponse($request);
         }
 
         return [
