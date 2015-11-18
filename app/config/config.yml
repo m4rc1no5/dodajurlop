@@ -89,3 +89,19 @@ fos_user:
     db_driver: orm # other valid values are 'mongodb', 'couchdb' and 'propel'
     firewall_name: main
     user_class: AppBundle\Entity\User
+
+monolog:
+    channels: [ajax]
+    handlers:
+        main:
+            type: rotating_file
+            max_files: 10
+            path:  "%kernel.logs_dir%/%kernel.environment%.log"
+            level: debug
+            channels: [!event]
+        ajax:
+            type: rotating_file
+            max_files: 10
+            path:  "%kernel.logs_dir%/ajax-%kernel.environment%.log"
+            level: debug
+            channels: [ajax]
