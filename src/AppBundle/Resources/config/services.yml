@@ -10,9 +10,18 @@ services:
     arguments: [@monolog.logger.ajax, %kernel.debug%]
     tags: [{ name: kernel.event_subscriber}]
 
+  app.repository.organizacja:
+    class: AppBundle\Repository\OrganizacjaRepository
+    arguments: [@doctrine.orm.entity_manager]
+
   app.command.organizacja.dodaj:
     class: AppBundle\CommandBus\Organizacja\DodajOrganizacjeCommand
     arguments: [@security.token_storage]
+
+  app.handler.organizacja.dodaj:
+    class: AppBundle\CommandBus\Organizacja\DodajOrganizacjeCommandHandler
+    arguments: [@app.repository.organizacja]
+    tags: [{ name: command_handler, handles: AppBundle\CommandBus\Organizacja\DodajOrganizacjeCommand }]
 
   app.form.type.organizacja:
     class: AppBundle\Form\Type\OrganizacjaType
@@ -22,6 +31,7 @@ services:
     class: AppBundle\Controller\DashboardController
   app.controller.organizacja:
     class: AppBundle\Controller\OrganizacjaController
-    arguments: [@app.command.organizacja.dodaj]
+    arguments: [@app.command.organizacja.dodaj, @simple_bus.command_bus]
     calls:
       - [setContainer, [@service_container]]
+      - [setUnitOfWork, [@unit_of_work]]

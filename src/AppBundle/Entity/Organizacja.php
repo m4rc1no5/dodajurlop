@@ -50,8 +50,16 @@ class Organizacja extends Entity
      */
     protected $zwolnienia;
 
-    public function __construct()
+    /**
+     * @param User $user
+     * @param string $nazwa
+     * @param string $pnazwa
+     */
+    public function __construct(User $user, $nazwa, $pnazwa)
     {
+        $this->user = $user;
+        $this->nazwa = $nazwa;
+        $this->pnazwa = $pnazwa;
         $this->zwolnienia = new ArrayCollection();
     }
 }

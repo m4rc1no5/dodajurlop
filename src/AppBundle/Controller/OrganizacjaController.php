@@ -11,8 +11,11 @@ namespace AppBundle\Controller;
 
 use AppBundle\CommandBus\Organizacja\DodajOrganizacjeCommand;
 use AppBundle\Response\RefererRedirectResponse;
+use Component\HasUnitOfWorkTrait;
+use Component\IHasUnitOfWork;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
+use SimpleBus\Message\Bus\MessageBus;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 
@@ -22,18 +25,25 @@ use Symfony\Component\HttpFoundation\Request;
  *
  * @Route("/organizacja", service="app.controller.organizacja")
  */
-class OrganizacjaController extends Controller
+class OrganizacjaController extends Controller implements IHasUnitOfWork
 {
+    use HasUnitOfWorkTrait;
+
     /** @var DodajOrganizacjeCommand */
     protected $dodajOrganizacjeCommand;
+
+    /** @var MessageBus */
+    protected $commandBus;
 
     /**
      * DashboardController constructor.
      * @param DodajOrganizacjeCommand $dodajOrganizacjeCommand
+     * @param MessageBus $commandBus
      */
-    public function __construct(DodajOrganizacjeCommand $dodajOrganizacjeCommand)
+    public function __construct(DodajOrganizacjeCommand $dodajOrganizacjeCommand, MessageBus $commandBus)
     {
         $this->dodajOrganizacjeCommand = $dodajOrganizacjeCommand;
+        $this->commandBus = $commandBus;
     }
 
     /**
@@ -64,6 +74,10 @@ class OrganizacjaController extends Controller
         $form->handleRequest($request);
 
         if($form->isValid()) {
+            $this->commandBus->handle($this->dodajOrganizacjeCommand);
+
+            $this->unitOfWork->commit();
+
             return new RefererRedirectResponse($request);
         }
 

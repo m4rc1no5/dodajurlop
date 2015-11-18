@@ -8,7 +8,6 @@
 
 namespace AppBundle\CommandBus\Organizacja;
 
-
 use AppBundle\CommandBus\Command;
 use AppBundle\Entity\User;
 use Symfony\Component\Validator\Constraints as Assert;

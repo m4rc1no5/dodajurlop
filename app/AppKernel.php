@@ -19,6 +19,7 @@ class AppKernel extends Kernel
             new FOS\UserBundle\FOSUserBundle(),
             new AppBundle\AppBundle(),
             new FOS\JsRoutingBundle\FOSJsRoutingBundle(),
+            new \SimpleBus\SymfonyBridge\SimpleBusCommandBusBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {
