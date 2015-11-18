@@ -85,8 +85,7 @@
         if (!force && (window.location.pathname == url || window.location.href == url)) {
             $.get(url, function (data) {
                 bootbox.hideAll();
-                $("section#app-body").replaceWith($(data).find("section#app-body"));
-                $(document).trigger('app.redirected', url);
+                $("div#page-wrapper").replaceWith($(data).find("div#page-wrapper"));
             });
         } else {
             window.location.href = url;
@@ -575,11 +574,6 @@
                 }
 
                 $.post(action, $form.serialize(), function (data) {
-
-                    if (window.console && console.log) {
-                        console.log(data);
-                    }
-
                     if ( ! processJSON(data)) {
                         var $content = $('.modal-content');
                         $content.replaceWith(data);
