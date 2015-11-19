@@ -10,6 +10,7 @@ namespace AppBundle\Controller;
 
 
 use AppBundle\CommandBus\Organizacja\DodajOrganizacjeCommand;
+use AppBundle\Repository\IOrganizacjaRepository;
 use AppBundle\Response\RefererRedirectResponse;
 use Component\HasUnitOfWorkTrait;
 use Component\IHasUnitOfWork;
@@ -35,15 +36,20 @@ class OrganizacjaController extends Controller implements IHasUnitOfWork
     /** @var MessageBus */
     protected $commandBus;
 
+    /** @var IOrganizacjaRepository */
+    protected $organizacjaRepository;
+
     /**
      * DashboardController constructor.
      * @param DodajOrganizacjeCommand $dodajOrganizacjeCommand
      * @param MessageBus $commandBus
+     * @param IOrganizacjaRepository $organizacjaRepository
      */
-    public function __construct(DodajOrganizacjeCommand $dodajOrganizacjeCommand, MessageBus $commandBus)
+    public function __construct(DodajOrganizacjeCommand $dodajOrganizacjeCommand, MessageBus $commandBus, IOrganizacjaRepository $organizacjaRepository)
     {
         $this->dodajOrganizacjeCommand = $dodajOrganizacjeCommand;
         $this->commandBus = $commandBus;
+        $this->organizacjaRepository = $organizacjaRepository;
     }
 
     /**
@@ -54,9 +60,10 @@ class OrganizacjaController extends Controller implements IHasUnitOfWork
      */
     public function indexAction()
     {
-        $date = new \DateTime();
+        $organizacje = $this->organizacjaRepository->findAllByUser($this->getUser());
+
         return [
-            'date' => $date
+            'organizacje' => $organizacje
         ];
     }
 

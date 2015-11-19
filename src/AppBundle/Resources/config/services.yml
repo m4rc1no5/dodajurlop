@@ -11,7 +11,7 @@ services:
     tags: [{ name: kernel.event_subscriber}]
 
   app.repository.organizacja:
-    class: AppBundle\Repository\OrganizacjaRepository
+    class: AppBundle\Repository\Doctrine\OrganizacjaRepository
     arguments: [@doctrine.orm.entity_manager]
 
   app.command.organizacja.dodaj:
@@ -31,7 +31,7 @@ services:
     class: AppBundle\Controller\DashboardController
   app.controller.organizacja:
     class: AppBundle\Controller\OrganizacjaController
-    arguments: [@app.command.organizacja.dodaj, @simple_bus.command_bus]
+    arguments: [@app.command.organizacja.dodaj, @simple_bus.command_bus, @app.repository.organizacja]
     calls:
       - [setContainer, [@service_container]]
       - [setUnitOfWork, [@unit_of_work]]

@@ -10,18 +10,18 @@ namespace AppBundle\CommandBus\Organizacja;
 
 
 use AppBundle\Entity\Organizacja;
-use AppBundle\Repository\OrganizacjaRepository;
+use AppBundle\Repository\IOrganizacjaRepository;
 
 class DodajOrganizacjeCommandHandler
 {
-    /** @var OrganizacjaRepository */
+    /** @var IOrganizacjaRepository */
     protected $organizacjaRepository;
 
     /**
      * DodajOrganizacjeCommandHandler constructor.
-     * @param OrganizacjaRepository $organizacjaRepository
+     * @param IOrganizacjaRepository $organizacjaRepository
      */
-    public function __construct(OrganizacjaRepository $organizacjaRepository)
+    public function __construct(IOrganizacjaRepository $organizacjaRepository)
     {
         $this->organizacjaRepository = $organizacjaRepository;
     }

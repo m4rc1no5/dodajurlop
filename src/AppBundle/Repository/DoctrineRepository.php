@@ -22,6 +22,19 @@ abstract class DoctrineRepository extends EntityRepository
         parent::__construct($entityManager, $entityManager->getClassMetadata($this->getEntityClassName()));
     }
 
+    protected function getQueryBuilder($alias, $with_del = true)
+    {
+        $qb = $this->createQueryBuilder($alias);
+
+        $qb->where($alias . '.wysw = :wysw')->setParameter('wysw', true);
+
+        if($with_del){
+            $qb->andWhere($alias . '.del = :del')->setParameter('del', false);
+        }
+
+        return $qb;
+    }
+
     protected function doAdd($entity)
     {
         $this->_em->persist($entity);
