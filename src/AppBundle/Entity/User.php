@@ -8,6 +8,7 @@
 
 namespace AppBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use FOS\UserBundle\Model\User as BaseUser;
 use Doctrine\ORM\Mapping as ORM;
 
@@ -36,6 +37,10 @@ class User extends BaseUser
      */
     protected $komentarz;
 
+    /**
+     * @var ArrayCollection
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Organizacja", mappedBy="user")
+     */
     protected $organizacje;
 
     protected $pracownicy;

@@ -1,0 +1,31 @@
+{% extends ':bootstrap:panel-without-footer.html.twig' %}
+{% use ':bootstrap:table.html.twig' %}
+
+{% block panelTitle %}Lista organizacji{% endblock %}
+
+{% block panelBody %}
+    {% if(organizacje is empty) %}
+        <div>Brak organizacji</div>
+    {% else %}
+        {{ block('table') }}
+    {% endif %}
+{% endblock %}
+
+{# tabelka #}
+{% block tableHeadRow %}
+    <td class="col-md-1">#</td>
+    <td class="col-md-4">Nazwa</td>
+    <td class="col-md-7">Pełna nazwa</td>
+{% endblock %}
+
+{% block tableBody %}
+    {% for organizacja in organizacje %}
+        <tr>{{ block('tableBodyRow') }}</tr>
+    {% endfor %}
+{% endblock %}
+
+{% block tableBodyRow %}
+    <td>{{ organizacja.id }}</td>
+    <td>{{ organizacja.nazwa }}</td>
+    <td>{{ organizacja.pnazwa }}</td>
+{% endblock %}

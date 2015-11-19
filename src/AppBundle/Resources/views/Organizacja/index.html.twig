@@ -1,7 +1,11 @@
 {% extends '::dashboard.html.twig' %}
 
 {% block main %}
-    <a class="btn btn-primary" data-toggle="bootbox-replace" data-width="800" href="{{ path('organizacja.dodaj') }}">{{ 'app.organizacja.dodaj'|trans|capitalize }}</a>
 
-    <div>{{ dump(organizacje) }}</div>
+    <p>
+        <a class="btn btn-primary" data-toggle="bootbox-replace" data-width="800" href="{{ path('organizacja.dodaj') }}">{{ 'app.organizacja.dodaj'|trans|capitalize }}</a>
+    </p>
+
+    <div>{% include '@App/Organizacja/panel_organizacje.html.twig' %}</div>
+
 {% endblock %}

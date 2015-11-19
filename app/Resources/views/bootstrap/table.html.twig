@@ -1,0 +1,13 @@
+{% block table %}
+    <table class="{{ tableClass|default('table table-condensed table-bordered table-striped table-hover') }}">
+        <thead>
+            <tr>{% block tableHeadRow %}{% endblock %}</tr>
+        </thead>
+
+        <tbody>
+        {% block tableBody %}
+            <tr>{% block tableBodyRow %}{% endblock %}</tr>
+        {% endblock %}
+        </tbody>
+    </table>
+{% endblock %}

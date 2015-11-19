@@ -62,4 +62,21 @@ class Organizacja extends Entity
         $this->pnazwa = $pnazwa;
         $this->zwolnienia = new ArrayCollection();
     }
+
+    /**
+     * @return string
+     */
+    public function getNazwa()
+    {
+        return $this->nazwa;
+    }
+
+    /**
+     * @return string
+     */
+    public function getPnazwa()
+    {
+        return $this->pnazwa;
+    }
+
 }

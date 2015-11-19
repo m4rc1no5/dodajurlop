@@ -1,0 +1,25 @@
+{% block panel %}
+    {% set color = '' %}
+    {% set map = { blue: 'info', green: 'success', orange: 'warning', red: 'danger' } %}
+    {% set type = map[color]|default('default') %}
+
+    <div class="panel panel-{{ type }}">
+        <div class="panel-heading">
+            {% block panelHeading %}
+                <h3 class="panel-title">{% block panelTitle %}{% endblock %}</h3>
+            {% endblock %}
+        </div>
+
+        {% block panelContent %}
+            <div class="panel-body">
+                {% block panelBody %}{% endblock %}
+            </div>
+        {% endblock %}
+
+        {% if footer is not defined or footer %}
+            <div class="panel-footer">
+                {% block panelFooter %}{% endblock %}
+            </div>
+        {% endif %}
+    </div>
+{% endblock %}
