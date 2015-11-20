@@ -26,5 +26,5 @@ app:
     title: organizacje
   pracownicy:
     title: pracownicy
-  zwolnienia:
-    title: zwolnienia
+  urlopy:
+    title: urlopy
