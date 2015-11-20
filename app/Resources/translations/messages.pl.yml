@@ -1,4 +1,4 @@
-dashboard: dashboard
+dashboard: Dashboard
 zapisz: Zapisz
 Nazwa: Nazwa
 Pnazwa: Pełna nazwa
@@ -21,13 +21,13 @@ base:
 #AppBundle
 app:
   organizacja:
-    dodaj: dodaj nową organizację
+    dodaj: Dodaj nową organizację
   organizacje:
-    title: organizacje
-    subtitle: miejsca pracy pracowników
-    lista: lista organizacji
-    brak: brak organizacji
+    title: Organizacje
+    subtitle: Miejsca pracy pracowników
+    lista: Lista organizacji
+    brak: Brak organizacji
   pracownicy:
-    title: pracownicy
+    title: Pracownicy
   urlopy:
-    title: urlopy
+    title: Urlopy
