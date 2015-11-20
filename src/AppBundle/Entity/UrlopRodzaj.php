@@ -12,13 +12,13 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Class ZwolnienieRodzaj
+ * Class UrlopRodzaj
  * @package AppBundle\Entity
  *
  * @ORM\Entity()
- * @ORM\Table(name="zwolnienierodzaj")
+ * @ORM\Table(name="urloprodzaj")
  */
-class ZwolnienieRodzaj extends Entity
+class UrlopRodzaj extends Entity
 {
     /**
      * @var string
@@ -30,13 +30,13 @@ class ZwolnienieRodzaj extends Entity
     /**
      * @var ArrayCollection
      *
-     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Zwolnienie", mappedBy="zwolnienieRodzaj")
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Urlop", mappedBy="urlopRodzaj")
      */
-    protected $zwolnienia;
+    protected $urlopy;
 
     public function __construct()
     {
-        $this->zwolnienia = new ArrayCollection();
+        $this->urlopy = new ArrayCollection();
     }
 
     /**

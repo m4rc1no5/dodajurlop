@@ -60,7 +60,7 @@ class Pracownik extends Entity
     /**
      * @var ArrayCollection
      *
-     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Zwolnienie", mappedBy="pracownik")
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Urlop", mappedBy="pracownik")
      */
-    protected $zwolnienia;
+    protected $urlopy;
 }

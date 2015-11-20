@@ -46,9 +46,9 @@ class Organizacja extends Entity
     /**
      * @var ArrayCollection
      *
-     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Zwolnienie", mappedBy="organizacja")
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Urlop", mappedBy="organizacja")
      */
-    protected $zwolnienia;
+    protected $urlopy;
 
     /**
      * @param User $user
@@ -60,7 +60,7 @@ class Organizacja extends Entity
         $this->user = $user;
         $this->nazwa = $nazwa;
         $this->pnazwa = $pnazwa;
-        $this->zwolnienia = new ArrayCollection();
+        $this->urlopy = new ArrayCollection();
     }
 
     /**

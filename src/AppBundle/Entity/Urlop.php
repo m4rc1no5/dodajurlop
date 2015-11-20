@@ -11,27 +11,27 @@ namespace AppBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Class Zwolnienie
+ * Class Urlop
  * @package AppBundle\Entity
  *
  * @ORM\Entity()
- * @ORM\Table(name="zwolnienie")
+ * @ORM\Table(name="urlop")
  */
-class Zwolnienie extends Entity
+class Urlop extends Entity
 {
 
     /**
-     * @var ZwolnienieRodzaj
+     * @var UrlopRodzaj
      *
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\ZwolnienieRodzaj", inversedBy="zwolnienia")
-     * @ORM\JoinColumn(name="zwolnienierodzaj_id", referencedColumnName="id")
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\UrlopRodzaj", inversedBy="urlopy")
+     * @ORM\JoinColumn(name="urloprodzaj_id", referencedColumnName="id")
      */
-    protected $zwolnienieRodzaj;
+    protected $urlopRodzaj;
 
     /**
      * @var Pracownik
      *
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Pracownik", inversedBy="zwolnienia")
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Pracownik", inversedBy="urlopy")
      * @ORM\JoinColumn(name="pracownik_id", referencedColumnName="id")
      */
     protected $pracownik;
@@ -39,7 +39,7 @@ class Zwolnienie extends Entity
     /**
      * @var Organizacja
      *
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Organizacja", inversedBy="zwolnienia")
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Organizacja", inversedBy="urlopy")
      * @ORM\JoinColumn(name="organizacja_id", referencedColumnName="id")
      */
     protected $organizacja;

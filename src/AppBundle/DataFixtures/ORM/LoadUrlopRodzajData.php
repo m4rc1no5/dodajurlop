@@ -9,13 +9,13 @@
 namespace AppBundle\DataFixtures\ORM;
 
 
-use AppBundle\Entity\ZwolnienieRodzaj;
+use AppBundle\Entity\UrlopRodzaj;
 use Doctrine\Common\DataFixtures\FixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
 
-class LoadZwolnienieRodzajData implements FixtureInterface
+class LoadUrlopRodzajData implements FixtureInterface
 {
-    private $ar_rodzaje_zwolnien = [
+    private $ar_rodzaje_urlopow = [
         ['100', 'Urlop wypoczynkowy'],
         ['99', 'Urlop okolicznościowy'],
         ['1', 'Badania lekarskie'],
@@ -28,12 +28,12 @@ class LoadZwolnienieRodzajData implements FixtureInterface
 
     public function load(ObjectManager $manager)
     {
-        foreach($this->ar_rodzaje_zwolnien as $ar_rodzaj_zwolnienia) {
-            $zwolnienieRodzaj = new ZwolnienieRodzaj();
-            $zwolnienieRodzaj->setLicznik($ar_rodzaj_zwolnienia[0]);
-            $zwolnienieRodzaj->setNazwa($ar_rodzaj_zwolnienia[1]);
+        foreach($this->ar_rodzaje_urlopow as $ar_rodzaj_urlopu) {
+            $urlopRodzaj = new UrlopRodzaj();
+            $urlopRodzaj->setLicznik($ar_rodzaj_urlopu[0]);
+            $urlopRodzaj->setNazwa($ar_rodzaj_urlopu[1]);
 
-            $manager->persist($zwolnienieRodzaj);
+            $manager->persist($urlopRodzaj);
         }
 
         $manager->flush();
