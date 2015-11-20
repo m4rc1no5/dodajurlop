@@ -1,11 +1,11 @@
 {% extends ':bootstrap:panel-without-footer.html.twig' %}
 {% use ':bootstrap:table.html.twig' %}
 
-{% block panelTitle %}Lista organizacji{% endblock %}
+{% block panelTitle %}{{ 'app.organizacje.lista'|trans|capitalize }}{% endblock %}
 
 {% block panelBody %}
     {% if(organizacje is empty) %}
-        <div>Brak organizacji</div>
+        <div>{{ 'app.organizacje.brak'|trans }}</div>
     {% else %}
         {{ block('table') }}
     {% endif %}
@@ -14,8 +14,8 @@
 {# tabelka #}
 {% block tableHeadRow %}
     <td class="col-md-1">#</td>
-    <td class="col-md-4">Nazwa</td>
-    <td class="col-md-7">Pełna nazwa</td>
+    <td class="col-md-4">{{ 'Nazwa'|trans }}</td>
+    <td class="col-md-7">{{ 'Pnazwa'|trans }}</td>
 {% endblock %}
 
 {% block tableBody %}

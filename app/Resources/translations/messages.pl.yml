@@ -24,6 +24,9 @@ app:
     dodaj: dodaj nową organizację
   organizacje:
     title: organizacje
+    subtitle: miejsca pracy pracowników
+    lista: lista organizacji
+    brak: brak organizacji
   pracownicy:
     title: pracownicy
   urlopy:
