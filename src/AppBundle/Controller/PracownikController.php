@@ -32,4 +32,17 @@ class PracownikController extends Controller
     {
         return [];
     }
+
+    /**
+     * @Route("/dodaj", name="pracownik.dodaj")
+     * @Template()
+     *
+     * @return array
+     */
+    public function dodajAction()
+    {
+
+
+        return [];
+    }
 }
