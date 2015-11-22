@@ -7,3 +7,5 @@ services:
     calls:
       - [setContainer, [@service_container]]
       - [setUnitOfWork, [@unit_of_work]]
+  app.controller.pracownik:
+    class: AppBundle\Controller\PracownikController

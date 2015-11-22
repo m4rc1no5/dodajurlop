@@ -1,0 +1,14 @@
+{% extends '::dashboard.html.twig' %}
+
+{% block title %}{{ 'app.pracownicy.title'|trans }}{% endblock %}
+{% block subTitle %}{{ 'app.pracownicy.subtitle'|trans }}{% endblock %}
+
+{% block main %}
+
+    <p>
+        <a class="btn btn-primary" data-toggle="bootbox-replace" data-width="800" href="#">{{ 'app.pracownik.dodaj'|trans }}</a>
+    </p>
+
+    <div></div>
+
+{% endblock %}
