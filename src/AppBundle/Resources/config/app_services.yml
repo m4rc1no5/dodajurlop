@@ -1,0 +1,11 @@
+services:
+  app.doctrine.data_entity_listener:
+    class: AppBundle\Doctrine\DataEntityListener
+    tags:
+      - { name: doctrine.event_listener, event: prePersist }
+      - { name: doctrine.event_listener, event: preUpdate }
+
+  app.listener.ajax_response:
+    class: AppBundle\EventListener\AjaxResponseListener
+    arguments: [@monolog.logger.ajax, %kernel.debug%]
+    tags: [{ name: kernel.event_subscriber}]

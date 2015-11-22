@@ -1,0 +1,4 @@
+services:
+  app.repository.organizacja:
+    class: AppBundle\Repository\Doctrine\OrganizacjaRepository
+    arguments: [@doctrine.orm.entity_manager]
