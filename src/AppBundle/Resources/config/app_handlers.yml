@@ -8,6 +8,14 @@ services:
     arguments: [@app.repository.organizacja]
     tags: [{ name: command_handler, handles: AppBundle\CommandBus\Organizacja\DodajOrganizacjeCommand }]
 
+  app.command.organizacja.edytuj:
+    class: AppBundle\CommandBus\Organizacja\EdytujOrganizacjeCommand
+    arguments: [@security.token_storage]
+  app.handler.organizacja.edytuj:
+    class: AppBundle\CommandBus\Organizacja\EdytujOrganizacjeCommandHandler
+    arguments: [@app.repository.organizacja]
+    tags: [{ name: command_handler, handles: AppBundle\CommandBus\Organizacja\EdytujOrganizacjeCommand }]
+
   # pracownik
   app.command.pracownik.dodaj:
     class: AppBundle\CommandBus\Pracownik\DodajPracownikaCommand
