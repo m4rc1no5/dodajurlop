@@ -71,6 +71,11 @@ class Organizacja extends Entity
         return $this->nazwa;
     }
 
+    public function setNazwa($nazwa)
+    {
+        $this->nazwa = $nazwa;
+    }
+
     /**
      * @return string
      */
@@ -79,4 +84,8 @@ class Organizacja extends Entity
         return $this->pnazwa;
     }
 
+    public function setPnazwa($pnazwa)
+    {
+        $this->pnazwa = $pnazwa;
+    }
 }
