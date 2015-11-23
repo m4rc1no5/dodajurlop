@@ -9,29 +9,58 @@
 namespace AppBundle\Tests\Form\Type;
 
 
-use AppBundle\Entity\Organizacja;
+use AppBundle\CommandBus\Organizacja\DodajOrganizacjeCommand;
 use AppBundle\Form\Type\OrganizacjaType;
-use Doctrine\Tests\Common\Persistence\TestObject;
 use Symfony\Component\Form\Test\TypeTestCase;
+use Mockery as M;
+use Symfony\Component\Security\Core\Authentication\Token\AbstractToken;
+use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorage;
 
 class OrganizacjaTypeTest extends TypeTestCase
 {
-    public function testSubmitValidData()
+
+    /** @var M\Mock */
+    private $tokenStorage;
+
+    protected function setUp()
     {
+        $this->tokenStorage = M::mock(TokenStorage::class);
+        parent::setUp();
+    }
+
+    public function testSubmitValidDataDodajOrganizacje()
+    {
+
+        //dane formularza - pola i wartości wpisane
         $formData = [
-            'nazwa' => 'nazwa',
-            'pnazwa' => 'pnazwa'
+            'nazwa' => 'Testowa nazwa',
+            'pnazwa' => 'Pełna nazwa'
         ];
 
-        $type = new OrganizacjaType();
-        $form = $this->factory->create($type);
+        // dodajOrganizacjeCommand
+        $token = M::mock(AbstractToken::class);
+        $token->shouldReceive('getUser')->once();
+        $this->tokenStorage->shouldReceive('getToken')->once()->andReturn($token);
+        $dodajOrganizacjeCommand = new DodajOrganizacjeCommand($this->tokenStorage);
+        $dodajOrganizacjeCommand->setNazwa($formData['nazwa']);
+        $dodajOrganizacjeCommand->setPnazwa($formData['pnazwa']);
 
+        // formularz
+        $type = new OrganizacjaType();
+        $form = $this->factory->create($type, $dodajOrganizacjeCommand);
+
+        // submit formularza
         $form->submit($formData);
+
+        // this test checks that none of your data transformers used by the form failed
         $this->assertTrue($form->isSynchronized());
 
+        // sprawdzamy czy obiekty są sobie równe
+        $this->assertEquals($dodajOrganizacjeCommand, $form->getData());
+
+        // sprawdzamy czy zgadzają się pola formularza
         $view = $form->createView();
         $children = $view->children;
-
         foreach (array_keys($formData) as $key) {
             $this->assertArrayHasKey($key, $children);
         }
