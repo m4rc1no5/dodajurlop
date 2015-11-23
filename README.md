@@ -95,7 +95,7 @@ and then create database, user and set permissions:
 
 ```sql
 CREATE DATABASE example_database_name;
-CREATE USER example_username WITH example_password;
+CREATE USER example_username WITH PASSWORD 'example_password';
 GRANT ALL ON DATABASE example_database_name TO example_username;
 ```
 
