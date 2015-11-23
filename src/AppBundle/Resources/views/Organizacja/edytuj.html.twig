@@ -1,0 +1,7 @@
+{% extends ':bootbox:modal-without-footer.html.twig' %}
+
+{% block modalTitle %}{{ 'app.organizacja.edytuj'|trans|capitalize }}{% endblock %}
+
+{% block modalBody %}
+    {% include '@App/Organizacja/form.html.twig' %}
+{% endblock %}

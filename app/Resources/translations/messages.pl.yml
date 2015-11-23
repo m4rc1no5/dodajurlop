@@ -22,6 +22,7 @@ base:
 app:
   organizacja:
     dodaj: Dodaj nową organizację
+    edytuj: Edycja
   organizacje:
     title: Organizacje
     subtitle: Miejsca pracy pracowników

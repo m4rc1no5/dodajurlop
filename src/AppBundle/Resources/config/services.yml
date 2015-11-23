@@ -23,6 +23,15 @@ services:
     arguments: [@app.repository.organizacja]
     tags: [{ name: command_handler, handles: AppBundle\CommandBus\Organizacja\DodajOrganizacjeCommand }]
 
+  app.command.organizacja.edytuj:
+      class: AppBundle\CommandBus\Organizacja\EdytujOrganizacjeCommand
+      arguments: [@security.token_storage]
+
+  app.handler.organizacja.edytuj:
+      class: AppBundle\CommandBus\Organizacja\EdytujOrganizacjeCommandHandler
+      arguments: [@app.repository.organizacja]
+      tags: [{ name: command_handler, handles: AppBundle\CommandBus\Organizacja\EdytujOrganizacjeCommand }]
+
   app.form.type.organizacja:
     class: AppBundle\Form\Type\OrganizacjaType
     tags: [{ name: form.type, alias: organizacja }]
@@ -31,7 +40,7 @@ services:
     class: AppBundle\Controller\DashboardController
   app.controller.organizacja:
     class: AppBundle\Controller\OrganizacjaController
-    arguments: [@app.command.organizacja.dodaj, @simple_bus.command_bus, @app.repository.organizacja]
+    arguments: [@app.command.organizacja.dodaj, @app.command.organizacja.edytuj, @simple_bus.command_bus, @app.repository.organizacja]
     calls:
       - [setContainer, [@service_container]]
       - [setUnitOfWork, [@unit_of_work]]
