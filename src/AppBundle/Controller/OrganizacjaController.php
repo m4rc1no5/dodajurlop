@@ -19,7 +19,6 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use SimpleBus\Message\Bus\MessageBus;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
-use AppBundle\CommandBus\Organizacja\EdytujOrganizacjeCommand;
 use AppBundle\Entity\Organizacja;
 
 /**
@@ -44,14 +43,12 @@ class OrganizacjaController extends Controller implements IHasUnitOfWork
     /**
      * DashboardController constructor.
      * @param DodajOrganizacjeCommand $dodajOrganizacjeCommand
-     * @param EdytujOrganizacjeCommand $edytujOrganizacjeCommand
      * @param MessageBus $commandBus
      * @param IOrganizacjaRepository $organizacjaRepository
      */
-    public function __construct(DodajOrganizacjeCommand $dodajOrganizacjeCommand, EdytujOrganizacjeCommand $edytujOrganizacjeCommand, MessageBus $commandBus, IOrganizacjaRepository $organizacjaRepository)
+    public function __construct(DodajOrganizacjeCommand $dodajOrganizacjeCommand, MessageBus $commandBus, IOrganizacjaRepository $organizacjaRepository)
     {
         $this->dodajOrganizacjeCommand = $dodajOrganizacjeCommand;
-        $this->edytujOrganizacjeCommand = $edytujOrganizacjeCommand;
         $this->commandBus = $commandBus;
         $this->organizacjaRepository = $organizacjaRepository;
     }
@@ -111,8 +108,6 @@ class OrganizacjaController extends Controller implements IHasUnitOfWork
         $form->handleRequest($request);
 
         if($form->isValid()) {
-            $this->commandBus->handle($this->edytujOrganizacjeCommand);
-
             $this->unitOfWork->commit();
 
             return new RefererRedirectResponse($request);
