@@ -28,7 +28,12 @@ app:
     subtitle: Miejsca pracy pracowników
     lista: Lista organizacji
     brak: Brak organizacji
+  pracownik:
+    dodaj: Dodaj nowego pracownika
   pracownicy:
     title: Pracownicy
+    subtitle: Osoby korzystające z urlopów
+    lista: Lista pracowników
+    brak: Brak pracowników
   urlopy:
     title: Urlopy

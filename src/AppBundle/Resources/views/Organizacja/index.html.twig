@@ -1,12 +1,12 @@
 {% extends '::dashboard.html.twig' %}
 
-{% block title %}{{ 'app.organizacje.title'|trans|capitalize }}{% endblock %}
+{% block title %}{{ 'app.organizacje.title'|trans }}{% endblock %}
 {% block subTitle %}{{ 'app.organizacje.subtitle'|trans }}{% endblock %}
 
 {% block main %}
 
     <p>
-        <a class="btn btn-primary" data-toggle="bootbox-replace" data-width="800" href="{{ path('organizacja.dodaj') }}">{{ 'app.organizacja.dodaj'|trans|capitalize }}</a>
+        <a class="btn btn-primary" data-toggle="bootbox-replace" data-width="800" href="{{ path('organizacja.dodaj') }}">{{ 'app.organizacja.dodaj'|trans }}</a>
     </p>
 
     <div>{% include '@App/Organizacja/panel_organizacje.html.twig' %}</div>

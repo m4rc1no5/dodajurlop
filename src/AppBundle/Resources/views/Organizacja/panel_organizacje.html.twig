@@ -1,7 +1,7 @@
 {% extends ':bootstrap:panel-without-footer.html.twig' %}
 {% use ':bootstrap:table.html.twig' %}
 
-{% block panelTitle %}{{ 'app.organizacje.lista'|trans|capitalize }}{% endblock %}
+{% block panelTitle %}{{ 'app.organizacje.lista'|trans }}{% endblock %}
 
 {% block panelBody %}
     {% if(organizacje is empty) %}
