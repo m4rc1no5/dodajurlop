@@ -28,4 +28,7 @@
     <td>{{ organizacja.id }}</td>
     <td>{{ organizacja.nazwa }}</td>
     <td>{{ organizacja.pnazwa }}</td>
+    <td>
+        <a class="btn btn-primary" data-toggle="bootbox-replace" data-width="800" href="{{ path('organizacja.edytuj', {'id': organizacja.id}) }}">{{ 'app.organizacja.edytuj'|trans|capitalize }}</a>
+    </td>
 {% endblock %}
