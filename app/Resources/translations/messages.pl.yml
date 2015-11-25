@@ -2,6 +2,10 @@ dashboard: Dashboard
 zapisz: Zapisz
 Nazwa: Nazwa
 Pnazwa: Pełna nazwa
+Imie: Imie
+Nazw: Nazwisko
+Email: Email
+ilosc_dni_wolnych: Ilosc dni wolnych
 
 #FOSUserBundle
 layout:
@@ -30,6 +34,7 @@ app:
     brak: Brak organizacji
   pracownik:
     dodaj: Dodaj nowego pracownika
+    edytuj: Edycja
   pracownicy:
     title: Pracownicy
     subtitle: Osoby korzystające z urlopów

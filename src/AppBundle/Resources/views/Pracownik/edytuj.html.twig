@@ -1,6 +1,6 @@
 {% extends ':bootbox:modal-without-footer.html.twig' %}
 
-{% block modalTitle %}{{ 'app.pracownik.dodaj'|trans }}{% endblock %}
+{% block modalTitle %}{{ 'app.pracownik.edytuj'|trans|capitalize }}{% endblock %}
 
 {% block modalBody %}
     {% include '@App/Organizacja/form.html.twig' %}

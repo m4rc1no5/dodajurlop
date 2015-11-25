@@ -2,3 +2,6 @@ services:
   app.form.type.organizacja:
     class: AppBundle\Form\Type\OrganizacjaType
     tags: [{ name: form.type, alias: organizacja }]
+  app.form.type.pracownik:
+    class: AppBundle\Form\Type\PracownikType
+    tags: [{ name: form.type, alias: pracownik }]

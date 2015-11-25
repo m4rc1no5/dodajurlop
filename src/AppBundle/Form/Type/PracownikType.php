@@ -22,7 +22,10 @@ class PracownikType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add()
+            ->add('imie', 'text')
+            ->add('nazw', 'text')
+            ->add('email', 'text')
+            ->add('iloscDniWolnych', 'integer')
         ;
     }
 
