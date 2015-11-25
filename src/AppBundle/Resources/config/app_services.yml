@@ -9,3 +9,8 @@ services:
     class: AppBundle\EventListener\AjaxResponseListener
     arguments: [@monolog.logger.ajax, %kernel.debug%]
     tags: [{ name: kernel.event_subscriber}]
+
+  app.twig.font_awesome_extension:
+    class: AppBundle\Twig\FontAwesomeExtension
+    tags:
+      - { name: twig.extension }
