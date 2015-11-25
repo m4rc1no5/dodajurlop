@@ -28,6 +28,8 @@
     <!-- Custom Fonts -->
     <link href="{{ asset('bundles/app/template/sb_admin/1.0.3/font-awesome/css/font-awesome.min.css') }}" rel="stylesheet" type="text/css">
 
+    <link href="{{ asset('bundles/app/css/base.css') }}" rel="stylesheet" type="text/css">
+
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -56,17 +58,17 @@
         <!-- Top Menu Items -->
         <ul class="nav navbar-right top-nav">
             <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i>&nbsp;&nbsp;{{ app.user.username }} <b class="caret"></b></a>
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">{{ icon('user') }} {{ app.user.username }} <b class="caret"></b></a>
                 <ul class="dropdown-menu">
                     <li>
-                        <a href="{{ path('fos_user_profile_show') }}"><i class="fa fa-fw fa-user"></i> Profile</a>
+                        <a href="{{ path('fos_user_profile_show') }}">{{ icon('user') }}  Profile</a>
                     </li>
                     <li>
-                        <a href="{{ path('fos_user_profile_edit') }}"><i class="fa fa-fw fa-gear"></i> Settings</a>
+                        <a href="{{ path('fos_user_profile_edit') }}">{{ icon('gear') }}  Settings</a>
                     </li>
                     <li class="divider"></li>
                     <li>
-                        <a href="{{ path('fos_user_security_logout') }}"><i class="fa fa-fw fa-power-off"></i> Log Out</a>
+                        <a href="{{ path('fos_user_security_logout') }}">{{ icon('power-off') }}  Log Out</a>
                     </li>
                 </ul>
             </li>
