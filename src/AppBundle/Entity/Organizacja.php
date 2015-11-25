@@ -88,4 +88,13 @@ class Organizacja extends Entity
     {
         $this->pnazwa = $pnazwa;
     }
+
+    /**
+     * @return User
+     */
+    public function getUser()
+    {
+        return $this->user;
+    }
+
 }
