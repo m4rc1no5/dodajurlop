@@ -104,17 +104,25 @@ class OrganizacjaController extends Controller implements IHasUnitOfWork
      */
     public function edytujAction(Request $request, Organizacja $organizacja)
     {
-        $form = $this->createForm('organizacja', $organizacja);
-        $form->handleRequest($request);
+        $owner = $organizacja->getUser();
+        $user = $this->container->get('security.context')->getToken()->getUser();
 
-        if($form->isValid()) {
-            $this->unitOfWork->commit();
+        if($owner->getId() === $user->getId()) {
 
+            $form = $this->createForm('organizacja', $organizacja);
+            $form->handleRequest($request);
+
+            if ($form->isValid()) {
+                $this->unitOfWork->commit();
+
+                return new RefererRedirectResponse($request);
+            }
+
+            return [
+                'form' => $form->createView()
+            ];
+        } else {
             return new RefererRedirectResponse($request);
         }
-
-        return [
-            'form' => $form->createView()
-        ];
     }
 }
