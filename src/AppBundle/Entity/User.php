@@ -43,6 +43,10 @@ class User extends BaseUser
      */
     protected $organizacje;
 
+    /**
+     * @var ArrayCollection
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Pracownik", mappedBy="user")
+     */
     protected $pracownicy;
 
 }

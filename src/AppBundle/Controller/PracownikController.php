@@ -98,7 +98,7 @@ class PracownikController extends Controller implements IHasUnitOfWork
     public function edytujAction(Request $request, Pracownik $pracownik)
     {
         // sprawdzamy czy user edytuje swoją organizację - jeśli nie to redirect
-        if($pracownik->getUser() !== $this->getUser()){
+        if($pracownik->getUser()->getId() !== $this->getUser()->getId()){
             return new RefererRedirectResponse($request);
         }
 

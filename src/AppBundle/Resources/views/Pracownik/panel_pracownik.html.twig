@@ -1,11 +1,11 @@
 {% extends ':bootstrap:panel-without-footer.html.twig' %}
 {% use ':bootstrap:table.html.twig' %}
 
-{% block panelTitle %}{{ 'app.pracownik.lista'|trans }}{% endblock %}
+{% block panelTitle %}{{ 'app.pracownicy.lista'|trans }}{% endblock %}
 
 {% block panelBody %}
     {% if(pracownicy is empty) %}
-        <div>{{ 'app.pracownik.brak'|trans }}</div>
+        <div>{{ 'app.pracownicy.brak'|trans }}</div>
     {% else %}
         {{ block('table') }}
     {% endif %}
