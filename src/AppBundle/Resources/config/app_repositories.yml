@@ -2,3 +2,6 @@ services:
   app.repository.organizacja:
     class: AppBundle\Repository\Doctrine\OrganizacjaRepository
     arguments: [@doctrine.orm.entity_manager]
+  app.repository.pracownik:
+      class: AppBundle\Repository\Doctrine\PracownikRepository
+      arguments: [@doctrine.orm.entity_manager]

@@ -9,3 +9,7 @@ services:
       - [setUnitOfWork, [@unit_of_work]]
   app.controller.pracownik:
     class: AppBundle\Controller\PracownikController
+    arguments: [@app.command.pracownik.dodaj, @simple_bus.command_bus, @app.repository.pracownik]
+    calls:
+      - [setContainer, [@service_container]]
+      - [setUnitOfWork, [@unit_of_work]]

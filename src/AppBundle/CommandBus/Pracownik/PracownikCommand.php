@@ -52,4 +52,78 @@ abstract class PracownikCommand extends Command
      * @var User
      */
     protected $user;
+
+    /**
+     * @return string
+     */
+    public function getImie()
+    {
+        return $this->imie;
+    }
+
+    /**
+     * @param string $imie
+     */
+    public function setImie($imie)
+    {
+        $this->imie = $imie;
+    }
+
+    /**
+     * @return string
+     */
+    public function getNazw()
+    {
+        return $this->nazw;
+    }
+
+    /**
+     * @param string $nazw
+     */
+    public function setNazw($nazw)
+    {
+        $this->nazw = $nazw;
+    }
+
+    /**
+     * @return string
+     */
+    public function getEmail()
+    {
+        return $this->email;
+    }
+
+    /**
+     * @param string $email
+     */
+    public function setEmail($email)
+    {
+        $this->email = $email;
+    }
+
+    /**
+     * @return integer
+     */
+    public function getIloscDniWolnych()
+    {
+        return $this->ilosc_dni_wolnych;
+    }
+
+    /**
+     * @param integer $ilosc_dni_wolnych
+     */
+    public function setIloscDniWolnych($ilosc_dni_wolnych)
+    {
+        $this->ilosc_dni_wolnych = $ilosc_dni_wolnych;
+    }
+
+    /**
+     * @return User
+     */
+    public function getUser()
+    {
+        return $this->user;
+    }
+
+
 }
