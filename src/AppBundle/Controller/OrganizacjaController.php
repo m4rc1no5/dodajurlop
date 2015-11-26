@@ -106,7 +106,7 @@ class OrganizacjaController extends Controller implements IHasUnitOfWork
     {
 
         // sprawdzamy czy user edytuje swoją organizację - jeśli nie to redirect
-        if($organizacja->getUser() !== $this->getUser()->getId()){
+        if($organizacja->getUser()->getId() !== $this->getUser()->getId()){
             return new RefererRedirectResponse($request);
         }
 
