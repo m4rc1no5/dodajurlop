@@ -3,17 +3,41 @@
 namespace AppBundle\Tests\Controller;
 
 use AppBundle\Tests\AppWebTestCase;
+use Symfony\Bundle\FrameworkBundle\Client;
+use Symfony\Component\DomCrawler\Crawler;
 
 class DefaultControllerWebTest extends AppWebTestCase
 {
-    public function testIndex()
+
+    /** @var  Client */
+    private $client;
+
+    /** @var  Crawler */
+    private $crawler;
+
+    protected function setUp()
     {
-        $client = static::createClient();
+        $this->client = static::createClient();
+        $this->crawler = $this->client->request('GET', '/');
+    }
 
-        $crawler = $client->request('GET', '/');
+    public function testIndex(){
+        $this->assertEquals(200, $this->client->getResponse()->getStatusCode());
+    }
 
-        $this->assertEquals(200, $client->getResponse()->getStatusCode());
-        //$this->assertContains('Welcome to Symfony', $crawler->filter('#container h1')->text());
-        //$this->assertContains("What's next?", $crawler->filter('#container h2')->text());
+    public function testLogIn()
+    {
+        $link = $this->crawler->filter('a:contains("Zaloguj się")')->link();
+        $log = $this->client->click($link);
+
+        $this->assertContains("Formularz logowania", $log->filter('.container h1')->text());
+    }
+
+    public function testReg()
+    {
+        $link = $this->crawler->filter('a:contains("Zarejestruj się")')->link();
+        $reg = $this->client->click($link);
+
+        $this->assertContains("Formularz rejestracji", $reg->filter('.container h1')->text());
     }
 }
