@@ -32,12 +32,4 @@ class DefaultControllerWebTest extends AppWebTestCase
 
         $this->assertContains("Formularz logowania", $log->filter('.container h1')->text());
     }
-
-    public function testReg()
-    {
-        $link = $this->crawler->filter('a:contains("Zarejestruj się")')->link();
-        $reg = $this->client->click($link);
-
-        $this->assertContains("Formularz rejestracji", $reg->filter('.container h1')->text());
-    }
 }
