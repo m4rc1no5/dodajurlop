@@ -40,5 +40,10 @@ app:
     subtitle: Osoby korzystające z urlopów
     lista: Lista pracowników
     brak: Brak pracowników
+  urlop:
+    dodaj: Dodaj nowy urlop
   urlopy:
     title: Urlopy
+    subtitle: Wolne dni pracowników
+    lista: Lista urlopów
+    brak: Brak urlopów

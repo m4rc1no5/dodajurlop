@@ -1,0 +1,12 @@
+{% extends ':bootstrap:panel-without-footer.html.twig' %}
+{% use ':bootstrap:table.html.twig' %}
+
+{% block panelTitle %}{{ 'app.urlopy.title'|trans }}{% endblock %}
+
+{% block panelBody %}
+    {% if(urlopy is empty) %}
+        <div>{{ 'app.urlopy.brak'|trans }}</div>
+    {% else %}
+        :)
+    {% endif %}
+{% endblock %}
