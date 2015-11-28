@@ -27,6 +27,7 @@ class PracownikRepository extends DoctrineRepository implements IPracownikReposi
 
         $qb
             ->andWhere('p.user = :user')->setParameter('user', $user)
+            ->andWhere('p.del = :del')->setParameter('del', false)
             ->orderBy('p.nazw')
         ;
 
