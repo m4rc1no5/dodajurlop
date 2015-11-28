@@ -22,6 +22,7 @@ class OrganizacjaRepository extends DoctrineRepository implements IOrganizacjaRe
 
         $qb
             ->andWhere('o.user = :user')->setParameter('user', $user)
+            ->andWhere('o.del = :del')->setParameter('del', false)
             ->addOrderBy('o.nazwa')
         ;
 

@@ -16,3 +16,6 @@ before_script:
   - echo 'xdebug.max_nesting_level=9999' | sudo tee ${ADDITIONAL_PATH:42}/symfony2.ini
 
 script: phpunit -c app/
+
+after_success:
+    - bash <(curl -s https://codecov.io/bash)

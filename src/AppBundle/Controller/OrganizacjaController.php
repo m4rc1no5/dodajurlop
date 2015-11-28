@@ -122,4 +122,23 @@ class OrganizacjaController extends Controller implements IHasUnitOfWork
             'form' => $form->createView()
         ];
     }
+
+    /**
+     * @Route("/delete/{id}", name="organizacja.delete")
+     *
+     * @param Request $request
+     * @param Organizacja $organizacja
+     * @return array
+     */
+    public function deleteAction(Request $request, Organizacja $organizacja)
+    {
+
+        // sprawdzamy czy user edytuje swoją organizację - jeśli nie to redirect
+        if($organizacja->getUser()->getId() == $this->getUser()->getId()){
+            $organizacja->setDel(true);
+            $this->unitOfWork->commit();
+        }
+
+        return new RefererRedirectResponse($request);
+    }
 }
