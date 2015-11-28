@@ -17,5 +17,10 @@ before_script:
 
 script: phpunit -c app/
 
+before_install:
+  - pip install codecov
+
 after_success:
-    - bash <(curl -s https://codecov.io/bash)
+  - codecov
+#    - bash <(curl -s https://codecov.io/bash)
+
