@@ -1,7 +1,8 @@
 dodajurlop
 ==========
 
-[![Build Status](https://travis-ci.org/m4rc1no5/dodajurlop.svg?branch=master)](https://travis-ci.org/m4rc1no5/dodajurlop)
+[![Build Status](https://travis-ci.org/m4rc1no5/dodajurlop.svg?branch=master)](https://travis-ci.org/m4rc1no5/dodajurlop) 
+[![codecov.io](https://codecov.io/github/m4rc1no5/dodajurlop/coverage.svg?branch=master)](https://codecov.io/github/m4rc1no5/dodajurlop?branch=master)
 
 Documentation
 =============
