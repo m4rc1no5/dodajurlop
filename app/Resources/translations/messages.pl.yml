@@ -27,6 +27,7 @@ app:
   organizacja:
     dodaj: Dodaj nową organizację
     edytuj: Edycja
+    delete: Usuń
   organizacje:
     title: Organizacje
     subtitle: Miejsca pracy pracowników
@@ -35,6 +36,7 @@ app:
   pracownik:
     dodaj: Dodaj nowego pracownika
     edytuj: Edycja
+    delete: Usuń
   pracownicy:
     title: Pracownicy
     subtitle: Osoby korzystające z urlopów

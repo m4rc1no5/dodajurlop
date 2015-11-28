@@ -35,4 +35,7 @@
     <td>
         <a class="btn btn-primary" data-toggle="bootbox-replace" data-width="800" href="{{ path('pracownik.edytuj', {'id': pracownik.id}) }}">{{ 'app.pracownik.edytuj'|trans|capitalize }}</a>
     </td>
+    <td>
+        <a class="btn btn-primary" href="{{ path('pracownik.delete', {'id': pracownik.id}) }}">{{ 'app.pracownik.delete'|trans|capitalize }}</a>
+    </td>
 {% endblock %}

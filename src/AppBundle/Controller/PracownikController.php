@@ -116,4 +116,22 @@ class PracownikController extends Controller implements IHasUnitOfWork
         ];
 
     }
+
+    /**
+     * @Route("/delete/{id}", name="pracownik.delete")
+     *
+     * @param Request $request
+     * @param Pracownik $pracownik
+     * @return array
+     */
+    public function deleteAction(Request $request, Pracownik $pracownik)
+    {
+        // sprawdzamy czy user edytuje swoją organizację - jeśli nie to redirect
+        if($pracownik->getUser()->getId() == $this->getUser()->getId()){
+            $pracownik->setDel(true);
+            $this->unitOfWork->commit();
+        }
+
+        return new RefererRedirectResponse($request);
+    }
 }
