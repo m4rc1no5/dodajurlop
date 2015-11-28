@@ -18,12 +18,12 @@ before_script:
 
 script: phpunit -c app/
 
-before_install:
-  - sudo apt-get install python-pip -qq
-  - sudo apt-get install -qq build-essential libssl-dev libffi-dev python-dev python-pip
-  - pip install codecov
+#before_install:
+#  - sudo apt-get install python-pip -qq
+#  - sudo apt-get install -qq build-essential libssl-dev libffi-dev python-dev python-pip
+#  - pip install codecov
 
 after_success:
-  - codecov
-#    - bash <(curl -s https://codecov.io/bash)
+#  - codecov
+  - bash <(curl -s https://codecov.io/bash)
 
