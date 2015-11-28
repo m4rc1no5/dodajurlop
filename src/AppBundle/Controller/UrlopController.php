@@ -12,6 +12,7 @@ namespace AppBundle\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\Request;
 
 /**
  * Class UrlopController
@@ -33,5 +34,17 @@ class UrlopController extends Controller
         return [
             'urlopy' => ''
         ];
+    }
+
+    /**
+     * @Route("/dodaj", name="urlop.dodaj")
+     * @Template()
+     *
+     * @param Request $request
+     * @return array
+     */
+    public function dodajAction(Request $request)
+    {
+        return [];
     }
 }
