@@ -1,7 +1,7 @@
 dodajurlop
 ==========
 
-[![Build Status](https://travis-ci.org/m4rc1no5/dodajurlop.svg?branch=master)](https://travis-ci.org/m4rc1no5/dodajurlop)
+[![Build Status](https://travis-ci.org/mistrzJoda/dodajurlop.svg?branch=master)](https://travis-ci.org/mistrzJoda/dodajurlop)
 
 Documentation
 =============
