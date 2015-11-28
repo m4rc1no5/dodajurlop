@@ -13,3 +13,5 @@ services:
     calls:
       - [setContainer, [@service_container]]
       - [setUnitOfWork, [@unit_of_work]]
+  app.controller.urlop:
+    class: AppBundle\Controller\UrlopController

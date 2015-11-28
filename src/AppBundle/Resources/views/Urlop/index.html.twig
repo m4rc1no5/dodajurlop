@@ -1,0 +1,14 @@
+{% extends '::dashboard.html.twig' %}
+
+{% block title %}{{ 'app.urlopy.title'|trans }}{% endblock %}
+{% block subTitle %}{{ 'app.urlopy.subtitle'|trans }}{% endblock %}
+
+{% block main %}
+
+    <p>
+        <a class="btn btn-primary" data-toggle="bootbox-replace" data-width="800" href="#">{{ 'app.urlop.dodaj'|trans }}</a>
+    </p>
+
+    <div>{% include '@App/Urlop/panel_urlopy.html.twig' %}</div>
+
+{% endblock %}
