@@ -18,6 +18,7 @@ class UrlopType extends AbstractType
     {
         $builder
             ->add('urlopRodzaj', 'urlop_rodzaj')
+            ->add('pracownik', 'pracownik_simple')
             ;
     }
 
