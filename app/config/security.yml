@@ -31,3 +31,5 @@ security:
         - { path: ^/resetting, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/dashboard/, role: ROLE_USER }
         - { path: ^/organizacja/, role: ROLE_USER }
+        - { path: ^/pracownik/, role: ROLE_USER }
+        - { path: ^/urlop/, role: ROLE_USER }

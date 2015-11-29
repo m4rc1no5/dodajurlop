@@ -15,7 +15,12 @@ before_script:
   - export ADDITIONAL_PATH=`php -i | grep -F --color=never 'Scan this dir for additional .ini files'`
   - echo 'xdebug.max_nesting_level=9999' | sudo tee ${ADDITIONAL_PATH:42}/symfony2.ini
 
-script: phpunit -c app/
+script: phpunit -c app --coverage-clover=coverage.xml
+
+before_install:
+  - pip install --user codecov
 
 after_success:
-    - bash <(curl -s https://codecov.io/bash)
+  - codecov
+#  - bash <(curl -s https://codecov.io/bash)
+
