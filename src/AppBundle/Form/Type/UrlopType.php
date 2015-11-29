@@ -17,7 +17,7 @@ class UrlopType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('')
+            ->add('urlopRodzaj', 'urlop_rodzaj')
             ;
     }
 

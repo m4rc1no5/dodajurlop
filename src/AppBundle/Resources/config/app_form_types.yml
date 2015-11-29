@@ -5,3 +5,10 @@ services:
   app.form.type.pracownik:
     class: AppBundle\Form\Type\PracownikType
     tags: [{ name: form.type, alias: pracownik }]
+  app.form.type.urlop_dodaj:
+    class: AppBundle\Form\Type\UrlopRodzajType
+    arguments: [@app.repository.urlop_rodzaj]
+    tags: [{ name: form.type, alias: urlop_rodzaj }]
+  app.form.type.urlop:
+    class: AppBundle\Form\Type\UrlopType
+    tags: [{ name: form.type, alias: urlop }]

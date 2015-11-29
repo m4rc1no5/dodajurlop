@@ -16,3 +16,8 @@ services:
     class: AppBundle\CommandBus\Pracownik\DodajPracownikaCommandHandler
     arguments: [@app.repository.pracownik]
     tags: [{ name: command_handler, handles: AppBundle\CommandBus\Pracownik\DodajPracownikaCommand }]
+
+  # urlop
+  app.command.urlop.dodaj:
+    class: AppBundle\CommandBus\Urlop\DodajUrlopCommand
+    arguments: [@security.token_storage]
