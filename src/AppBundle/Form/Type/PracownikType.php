@@ -9,8 +9,12 @@
 namespace AppBundle\Form\Type;
 
 
+use AppBundle\Entity\User;
+use AppBundle\Repository\IPracownikRepository;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorage;
 
 class PracownikType extends AbstractType
 {

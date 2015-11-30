@@ -21,6 +21,14 @@ class Urlop extends Entity
 {
 
     /**
+     * @var User
+     *
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\User", inversedBy="urlopy")
+     * @ORM\JoinColumn(name="fos_user_id", referencedColumnName="id")
+     */
+    protected $user;
+
+    /**
      * @var UrlopRodzaj
      *
      * @ORM\ManyToOne(targetEntity="AppBundle\Entity\UrlopRodzaj", inversedBy="urlopy")

@@ -24,6 +24,7 @@ class LoadUrlopRodzajData implements FixtureInterface
         ['1', 'Na ratunek'],
         ['1', 'Posiedzenie komisji lub rady'],
         ['1', 'Zajęcia dydaktyczne'],
+        ['1', 'Inny'],
     ];
 
     public function load(ObjectManager $manager)

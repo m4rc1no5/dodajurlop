@@ -9,6 +9,7 @@
 namespace AppBundle\Controller;
 
 
+use AppBundle\CommandBus\Urlop\DodajUrlopCommand;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -22,6 +23,18 @@ use Symfony\Component\HttpFoundation\Request;
  */
 class UrlopController extends Controller
 {
+
+    /** @var DodajUrlopCommand */
+    private $dodajUrlopCommand;
+
+    /**
+     * UrlopController constructor.
+     * @param DodajUrlopCommand $dodajUrlopCommand
+     */
+    public function __construct(DodajUrlopCommand $dodajUrlopCommand)
+    {
+        $this->dodajUrlopCommand = $dodajUrlopCommand;
+    }
 
     /**
      * @Route("/", name="urlop")
@@ -45,6 +58,10 @@ class UrlopController extends Controller
      */
     public function dodajAction(Request $request)
     {
-        return [];
+        $form = $this->createForm('urlop', $this->dodajUrlopCommand);
+
+        return [
+            'form' => $form->createView()
+        ];
     }
 }

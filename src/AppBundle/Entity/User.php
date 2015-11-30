@@ -39,14 +39,22 @@ class User extends BaseUser
 
     /**
      * @var ArrayCollection
+     *
      * @ORM\OneToMany(targetEntity="AppBundle\Entity\Organizacja", mappedBy="user")
      */
     protected $organizacje;
 
     /**
      * @var ArrayCollection
+     *
      * @ORM\OneToMany(targetEntity="AppBundle\Entity\Pracownik", mappedBy="user")
      */
     protected $pracownicy;
+
+    /**
+     * @var ArrayCollection
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Urlop", mappedBy="user")
+     */
+    protected $urlopy;
 
 }

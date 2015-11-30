@@ -33,8 +33,9 @@ class UrlopRodzajType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults([
-            'data_class' => self::DATA_CLASS,
-            'choices' => $this->urlopRodzajRepository->getAll()
+            'class' => self::DATA_CLASS,
+            'choices' => $this->urlopRodzajRepository->getAll(),
+            'choice_label' => 'getNazwa'
         ]);
     }
 

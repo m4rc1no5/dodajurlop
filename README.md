@@ -121,6 +121,14 @@ php app/console fos:user:activate
 
 Folders app/cache and app/logs directories must be writable - see [Setting up permissions](#permission)
 
+### Load Doctrine fixtues data
+
+```
+php app/console doctrine:fixtures:load
+```
+
+More info: http://symfony.com/doc/current/bundles/DoctrineFixturesBundle/index.html
+
 <a name="permission"></a>
 Setting up permissions
 ----------------------
