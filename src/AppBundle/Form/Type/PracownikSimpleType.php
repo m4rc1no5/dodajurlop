@@ -45,7 +45,6 @@ class PracownikSimpleType extends AbstractType
         $resolver->setDefaults([
             'class' => self::DATA_CLASS,
             'choices' => $this->pracownikRepository->findAllByUser($this->user),
-            'choice_label' => 'getNazw'
         ]);
     }
 
