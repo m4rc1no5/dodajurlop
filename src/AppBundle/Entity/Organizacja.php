@@ -66,6 +66,14 @@ class Organizacja extends Entity
     /**
      * @return string
      */
+    public function __toString()
+    {
+        return $this->getNazwa();
+    }
+
+    /**
+     * @return string
+     */
     public function getNazwa()
     {
         return $this->nazwa;

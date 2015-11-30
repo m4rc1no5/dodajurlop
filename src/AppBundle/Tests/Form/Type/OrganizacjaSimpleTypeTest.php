@@ -9,18 +9,18 @@
 namespace AppBundle\Tests\Form\Type;
 
 
-use AppBundle\Form\Type\PracownikSimpleType;
-use AppBundle\Repository\Doctrine\PracownikRepository;
+use AppBundle\Form\Type\OrganizacjaSimpleType;
+use AppBundle\Repository\Doctrine\OrganizacjaRepository;
 use Symfony\Component\Form\Test\TypeTestCase;
 use Mockery as M;
 use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorage;
 use Symfony\Component\Security\Core\Authentication\Token\UsernamePasswordToken;
 
-class PracownikSimpleTypeTest extends TypeTestCase
+class OrganizacjaSimpleTypeTest extends TypeTestCase
 {
 
     /** @var M\Mock */
-    private $pracownikRepository;
+    private $organizacjaRepository;
 
     /** @var M\Mock */
     private $tokenStorage;
@@ -30,7 +30,7 @@ class PracownikSimpleTypeTest extends TypeTestCase
 
     protected function setUp()
     {
-        $this->pracownikRepository = M::mock(PracownikRepository::class);
+        $this->organizacjaRepository = M::mock(OrganizacjaRepository::class);
         $this->tokenStorage = M::mock(TokenStorage::class);
         $this->token = M::mock(UsernamePasswordToken::class);
         parent::setUp();
@@ -39,22 +39,22 @@ class PracownikSimpleTypeTest extends TypeTestCase
 
     public function testParentAndName()
     {
-        $p = $this->getPracownikSimpleType();
+        $o = $this->getOrganizacjaSimpleType();
 
         // parent
-        $this->assertEquals('entity', $p->getParent());
+        $this->assertEquals('entity', $o->getParent());
 
         // name
-        $this->assertEquals('pracownik_simple', $p->getName());
+        $this->assertEquals('organizacja_simple', $o->getName());
 
         // class
-        $this->assertEquals('AppBundle\Entity\Pracownik', $p::DATA_CLASS);
+        $this->assertEquals('AppBundle\Entity\Organizacja', $o::DATA_CLASS);
     }
 
-    private function getPracownikSimpleType()
+    private function getOrganizacjaSimpleType()
     {
         $this->token->shouldReceive('getUser')->once();
         $this->tokenStorage->shouldReceive('getToken')->once()->andReturn($this->token);
-        return new PracownikSimpleType($this->pracownikRepository, $this->tokenStorage);
+        return new OrganizacjaSimpleType($this->organizacjaRepository, $this->tokenStorage);
     }
 }
