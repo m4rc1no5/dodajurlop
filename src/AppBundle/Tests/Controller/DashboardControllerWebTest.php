@@ -10,7 +10,7 @@ use AppBundle\Tests\AppWebTestCase;
 use Symfony\Bundle\FrameworkBundle\Client;
 use Symfony\Component\DomCrawler\Crawler;
 
-class DefaultControllerWebTest extends AppWebTestCase
+class DashboardControllerWebTest extends AppWebTestCase
 {
 
     /** @var  Client */
