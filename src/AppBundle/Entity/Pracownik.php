@@ -84,6 +84,22 @@ class Pracownik extends Entity
     /**
      * @return string
      */
+    public function getImieNazw()
+    {
+        return sprintf("%s %s", $this->imie, $this->nazw);
+    }
+
+    /**
+     * @return string
+     */
+    public function __toString()
+    {
+        return $this->getImieNazw();
+    }
+
+    /**
+     * @return string
+     */
     public function getImie()
     {
         return $this->imie;
@@ -145,6 +161,9 @@ class Pracownik extends Entity
         $this->ilosc_dni_wolnych = $ilosc_dni_wolnych;
     }
 
+    /**
+     * @return User
+     */
     public function getUser()
     {
         return $this->user;

@@ -31,6 +31,8 @@ class PracownikTest extends TestCase
         $this->assertEquals('Nazwisko Test', $this->pracownik->getNazw());
         $this->assertEquals('Test@mail.com', $this->pracownik->getEmail());
         $this->assertEquals(40, $this->pracownik->getIloscDniWolnych());
+        $this->assertEquals('Imie Test Nazwisko Test', $this->pracownik->getImieNazw());
+        $this->assertEquals('Imie Test Nazwisko Test', $this->pracownik);
     }
 
     public function testSetDanych()

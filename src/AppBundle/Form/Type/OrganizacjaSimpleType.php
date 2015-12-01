@@ -2,51 +2,49 @@
 /**
  * Created by PhpStorm.
  * User: marcinos
- * Date: 29.11.15
- * Time: 13:07
+ * Date: 30.11.15
+ * Time: 20:55
  */
 
 namespace AppBundle\Form\Type;
 
 
 use AppBundle\Entity\User;
-use AppBundle\Repository\IPracownikRepository;
+use AppBundle\Repository\IOrganizacjaRepository;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorage;
 
-class PracownikSimpleType extends AbstractType
+class OrganizacjaSimpleType extends AbstractType
 {
 
-    const DATA_CLASS = 'AppBundle\Entity\Pracownik';
+    const DATA_CLASS = 'AppBundle\Entity\Organizacja';
 
-    /** @var IPracownikRepository */
-    private $pracownikRepository;
+    /** @var IOrganizacjaRepository */
+    private $organizacjaRepository;
 
     /** @var User */
     private $user;
 
     /**
-     * PracownikType constructor.
-     * @param IPracownikRepository $pracownikRepository
+     * OrganizacjaSimpleType constructor.
+     * @param IOrganizacjaRepository $organizacjaRepository
      * @param TokenStorage $tokenStorage
      */
-    public function __construct(IPracownikRepository $pracownikRepository, TokenStorage $tokenStorage)
+    public function __construct(IOrganizacjaRepository $organizacjaRepository, TokenStorage $tokenStorage)
     {
-        $this->pracownikRepository = $pracownikRepository;
+        $this->organizacjaRepository = $organizacjaRepository;
         $this->user = $tokenStorage->getToken()->getUser();
     }
 
-    /**
-     * @param OptionsResolver $resolver
-     */
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults([
             'class' => self::DATA_CLASS,
-            'choices' => $this->pracownikRepository->findAllByUser($this->user),
+            'choices' => $this->organizacjaRepository->findAllByUser($this->user),
         ]);
     }
+
 
     /**
      * @return string
@@ -61,7 +59,7 @@ class PracownikSimpleType extends AbstractType
      */
     public function getName()
     {
-        return 'pracownik_simple';
+        return 'organizacja_simple';
     }
 
 }
