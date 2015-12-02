@@ -13,6 +13,10 @@
                 animate: false,
                 onEscape: true
             })
+        },
+
+        datepicker: function () {
+
         }
     };
 
@@ -136,6 +140,7 @@
 
                     defaults.alertify();
                     defaults.bootbox();
+                    defaults.datepicker();
 
                     //pacjentDropdown();
                     //sessionCountdown();
