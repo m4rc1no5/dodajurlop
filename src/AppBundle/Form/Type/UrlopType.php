@@ -20,6 +20,10 @@ class UrlopType extends AbstractType
             ->add('urlopRodzaj', 'urlop_rodzaj')
             ->add('pracownik', 'pracownik_simple')
             ->add('organizacja', 'organizacja_simple')
+            ->add('dataOd', 'date', [
+                'widget' => 'single_text',
+                'format' => 'yyyy-MM-dd'
+            ])
             ;
     }
 
