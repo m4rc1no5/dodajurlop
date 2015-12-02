@@ -14,6 +14,7 @@ use AppBundle\Entity\User;
 use AppBundle\Repository\IOrganizacjaRepository;
 use Symfony\Bundle\FrameworkBundle\Tests\TestCase;
 use Mockery as M;
+
 class DodajOrganizacjeCommandHandlerTest extends TestCase
 {
     /** @var  M\Mock */
