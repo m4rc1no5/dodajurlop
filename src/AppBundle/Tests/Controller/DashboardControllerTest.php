@@ -9,7 +9,7 @@ namespace AppBundle\Tests\Controller;
 
 
 use AppBundle\Controller\DashboardController;
-use Symfony\Bundle\SwiftmailerBundle\Tests\TestCase;
+use Symfony\Bundle\FrameworkBundle\Tests\TestCase;
 
 class DashboardControllerTest extends TestCase
 {

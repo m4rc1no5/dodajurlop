@@ -20,6 +20,28 @@ class UrlopType extends AbstractType
             ->add('urlopRodzaj', 'urlop_rodzaj')
             ->add('pracownik', 'pracownik_simple')
             ->add('organizacja', 'organizacja_simple')
+            ->add('dataOd', 'date', [
+                'widget' => 'single_text',
+                'format' => 'yyyy-MM-dd',
+                'attr' => [
+                    'class' => 'form-control input-inline datepicker',
+                    'data-provide' => 'datepicker',
+                    'data-date-format' => 'yyyy-mm-dd',
+                    'data-date-autoclose' => true,
+                    'data-date-today-highlight' => true,
+                ]
+            ])
+            ->add('dataDo', 'date', [
+                'widget' => 'single_text',
+                'format' => 'yyyy-MM-dd',
+                'attr' => [
+                    'class' => 'form-control input-inline datepicker',
+                    'data-provide' => 'datepicker',
+                    'data-date-format' => 'yyyy-mm-dd',
+                    'data-date-autoclose' => true,
+                    'data-date-today-highlight' => true,
+                ]
+            ])
             ;
     }
 
