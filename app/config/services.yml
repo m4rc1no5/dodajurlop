@@ -6,4 +6,4 @@ parameters:
 services:
   unit_of_work:
     class: Component\UnitOfWork
-    arguments: [@doctrine.orm.entity_manager]
+    arguments: ["@doctrine.orm.entity_manager"]

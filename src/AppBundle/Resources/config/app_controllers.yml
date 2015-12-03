@@ -3,18 +3,18 @@ services:
     class: AppBundle\Controller\DashboardController
   app.controller.organizacja:
     class: AppBundle\Controller\OrganizacjaController
-    arguments: [@app.command.organizacja.dodaj, @simple_bus.command_bus, @app.repository.organizacja]
+    arguments: ["@app.command.organizacja.dodaj", "@simple_bus.command_bus", "@app.repository.organizacja"]
     calls:
-      - [setContainer, [@service_container]]
-      - [setUnitOfWork, [@unit_of_work]]
+      - [setContainer, ["@service_container"]]
+      - [setUnitOfWork, ["@unit_of_work"]]
   app.controller.pracownik:
     class: AppBundle\Controller\PracownikController
-    arguments: [@app.command.pracownik.dodaj, @simple_bus.command_bus, @app.repository.pracownik]
+    arguments: ["@app.command.pracownik.dodaj", "@simple_bus.command_bus", "@app.repository.pracownik"]
     calls:
-      - [setContainer, [@service_container]]
-      - [setUnitOfWork, [@unit_of_work]]
+      - [setContainer, ["@service_container"]]
+      - [setUnitOfWork, ["@unit_of_work"]]
   app.controller.urlop:
     class: AppBundle\Controller\UrlopController
-    arguments: [@app.command.urlop.dodaj]
+    arguments: ["@app.command.urlop.dodaj"]
     calls:
-      - [setContainer, [@service_container]]
+      - [setContainer, ["@service_container"]]

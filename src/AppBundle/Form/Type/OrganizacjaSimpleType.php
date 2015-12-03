@@ -57,7 +57,7 @@ class OrganizacjaSimpleType extends AbstractType
     /**
      * @return string
      */
-    public function getName()
+    public function getBlockPrefix()
     {
         return 'organizacja_simple';
     }

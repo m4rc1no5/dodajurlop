@@ -35,7 +35,7 @@ class UrlopRodzajTypeTest extends TypeTestCase
         $this->assertEquals('entity', $ur->getParent());
 
         // name
-        $this->assertEquals('urlop_rodzaj', $ur->getName());
+        $this->assertEquals('urlop_rodzaj', $ur->getBlockPrefix());
     }
 
     public function testDataClass()

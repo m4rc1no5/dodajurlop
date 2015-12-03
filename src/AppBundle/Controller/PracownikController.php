@@ -10,6 +10,7 @@ namespace AppBundle\Controller;
 
 
 use AppBundle\Entity\Pracownik;
+use AppBundle\Form\Type\PracownikType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -71,7 +72,7 @@ class PracownikController extends Controller implements IHasUnitOfWork
      */
     public function dodajAction(Request $request)
     {
-        $form = $this->createForm('pracownik', $this->dodajPracownikaCommand);
+        $form = $this->createForm(PracownikType::class, $this->dodajPracownikaCommand);
         $form->handleRequest($request);
 
         if($form->isValid()) {
@@ -102,7 +103,7 @@ class PracownikController extends Controller implements IHasUnitOfWork
             return new RefererRedirectResponse($request);
         }
 
-        $form = $this->createForm('pracownik', $pracownik);
+        $form = $this->createForm(PracownikType::class, $pracownik);
         $form->handleRequest($request);
 
         if ($form->isValid()) {

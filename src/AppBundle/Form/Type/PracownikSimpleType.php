@@ -59,7 +59,7 @@ class PracownikSimpleType extends AbstractType
     /**
      * @return string
      */
-    public function getName()
+    public function getBlockPrefix()
     {
         return 'pracownik_simple';
     }

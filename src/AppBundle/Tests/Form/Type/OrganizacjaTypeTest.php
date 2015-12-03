@@ -46,8 +46,7 @@ class OrganizacjaTypeTest extends TypeTestCase
         $dodajOrganizacjeCommand->setPnazwa($formData['pnazwa']);
 
         // formularz
-        $type = new OrganizacjaType();
-        $form = $this->factory->create($type, $dodajOrganizacjeCommand);
+        $form = $this->factory->create(OrganizacjaType::class, $dodajOrganizacjeCommand);
 
         // submit formularza
         $form->submit($formData);
