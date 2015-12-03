@@ -29,15 +29,25 @@ class LoadUrlopRodzajData implements FixtureInterface
 
     public function load(ObjectManager $manager)
     {
-        foreach($this->ar_rodzaje_urlopow as $ar_rodzaj_urlopu) {
-            $urlopRodzaj = new UrlopRodzaj();
-            $urlopRodzaj->setLicznik($ar_rodzaj_urlopu[0]);
-            $urlopRodzaj->setNazwa($ar_rodzaj_urlopu[1]);
+        foreach ($this->tworzenieRodzaje() as $urlop_rodzaj) {
+            $manager->persist($urlop_rodzaj);
+        }
+        $manager->flush();
+    }
 
-            $manager->persist($urlopRodzaj);
+    /**
+     * @return array
+     */
+    public function tworzenieRodzaje()
+    {
+        $return = [];
+        foreach ($this->ar_rodzaje_urlopow as $key => $ar_rodzaj_urlopu) {
+            $return[$key] = new UrlopRodzaj();
+            $return[$key]->setLicznik($ar_rodzaj_urlopu[0]);
+            $return[$key]->setNazwa($ar_rodzaj_urlopu[1]);
         }
 
-        $manager->flush();
+        return $return;
     }
 
 }
