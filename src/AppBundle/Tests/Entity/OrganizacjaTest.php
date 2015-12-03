@@ -42,5 +42,6 @@ class OrganizacjaTest extends TestCase
 
         $this->assertNotEquals('Jakaś organizacja', $this->organizacja->getNazwa());
         $this->assertNotEquals('Pełna nazwa organizacji', $this->organizacja->getPnazwa());
+        $this->assertEquals('Inna nazwa', $this->organizacja);
     }
 }
