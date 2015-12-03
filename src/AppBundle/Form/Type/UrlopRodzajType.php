@@ -44,7 +44,7 @@ class UrlopRodzajType extends AbstractType
         return 'entity';
     }
 
-    public function getName()
+    public function getBlockPrefix()
     {
         return 'urlop_rodzaj';
     }

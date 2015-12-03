@@ -17,9 +17,9 @@ class UrlopType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('urlopRodzaj', 'urlop_rodzaj')
-            ->add('pracownik', 'pracownik_simple')
-            ->add('organizacja', 'organizacja_simple')
+            ->add('urlopRodzaj', UrlopRodzajType::class)
+            ->add('pracownik', PracownikSimpleType::class)
+            ->add('organizacja', OrganizacjaSimpleType::class)
             ->add('dataOd', 'date', [
                 'widget' => 'single_text',
                 'format' => 'yyyy-MM-dd',
@@ -45,7 +45,7 @@ class UrlopType extends AbstractType
             ;
     }
 
-    public function getName()
+    public function getBlockPrefix()
     {
         return 'urlop';
     }

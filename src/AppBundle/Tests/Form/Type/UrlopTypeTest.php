@@ -26,7 +26,7 @@ class UrlopTypeTest extends TypeTestCase
     {
         $u = $this->getUrlopType();
 
-        $this->assertEquals('urlop', $u->getName());
+        $this->assertEquals('urlop', $u->getBlockPrefix());
     }
 
     private function getUrlopType()

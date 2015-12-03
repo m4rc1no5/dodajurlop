@@ -48,8 +48,7 @@ class PracownikTypeTest extends TypeTestCase
         $dodajPracownikCommand->setIloscDniWolnych($formData['iloscDniWolnych']);
 
         //formularz
-        $type = new PracownikType();
-        $form = $this->factory->create($type, $dodajPracownikCommand);
+        $form = $this->factory->create(PracownikType::class, $dodajPracownikCommand);
 
         //submit formularz
         $form->submit($formData);

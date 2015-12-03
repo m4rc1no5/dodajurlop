@@ -10,6 +10,7 @@ namespace AppBundle\Controller;
 
 
 use AppBundle\CommandBus\Organizacja\DodajOrganizacjeCommand;
+use AppBundle\Form\Type\OrganizacjaType;
 use AppBundle\Repository\IOrganizacjaRepository;
 use AppBundle\Response\RefererRedirectResponse;
 use Component\HasUnitOfWorkTrait;
@@ -78,7 +79,7 @@ class OrganizacjaController extends Controller implements IHasUnitOfWork
      */
     public function dodajAction(Request $request)
     {
-        $form = $this->createForm('organizacja', $this->dodajOrganizacjeCommand);
+        $form = $this->createForm(OrganizacjaType::class, $this->dodajOrganizacjeCommand);
         $form->handleRequest($request);
 
         if($form->isValid()) {
@@ -110,7 +111,7 @@ class OrganizacjaController extends Controller implements IHasUnitOfWork
             return new RefererRedirectResponse($request);
         }
 
-        $form = $this->createForm('organizacja', $organizacja);
+        $form = $this->createForm(OrganizacjaType::class, $organizacja);
         $form->handleRequest($request);
 
         if ($form->isValid()) {

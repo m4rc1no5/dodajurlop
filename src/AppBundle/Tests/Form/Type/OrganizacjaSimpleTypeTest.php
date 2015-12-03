@@ -45,7 +45,7 @@ class OrganizacjaSimpleTypeTest extends TypeTestCase
         $this->assertEquals('entity', $o->getParent());
 
         // name
-        $this->assertEquals('organizacja_simple', $o->getName());
+        $this->assertEquals('organizacja_simple', $o->getBlockPrefix());
 
         // class
         $this->assertEquals('AppBundle\Entity\Organizacja', $o::DATA_CLASS);

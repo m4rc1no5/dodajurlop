@@ -45,7 +45,7 @@ class PracownikSimpleTypeTest extends TypeTestCase
         $this->assertEquals('entity', $p->getParent());
 
         // name
-        $this->assertEquals('pracownik_simple', $p->getName());
+        $this->assertEquals('pracownik_simple', $p->getBlockPrefix());
 
         // class
         $this->assertEquals('AppBundle\Entity\Pracownik', $p::DATA_CLASS);
