@@ -44,7 +44,7 @@ class LoadUrlopRodzajDataTest extends TestCase
 
     public function testTworzeniaRodzaje()
     {
-        $arr_urlop = $this->rodzaj->tworzenieRodzaje();
+        $arr_urlop = $this->rodzaj->getArrayUrlopRodzaj();
         /** @var UrlopRodzaj $urlop_type */
         foreach ($arr_urlop as $urlop_type) {
             $this->assertTrue(in_array($urlop_type->getNazwa(),$this->ar_rodzaje_urlopow));

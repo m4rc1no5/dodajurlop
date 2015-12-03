@@ -27,10 +27,16 @@ class LoadUrlopRodzajData implements FixtureInterface
         ['1', 'Inny'],
     ];
 
+    /**
+     * @param ObjectManager $manager
+     */
     public function load(ObjectManager $manager)
     {
-        foreach ($this->tworzenieRodzaje() as $urlop_rodzaj) {
-            $manager->persist($urlop_rodzaj);
+        $arUrlopRodzaj = $this->getArrayUrlopRodzaj();
+
+        /** @var UrlopRodzaj $urlopRodzaj */
+        foreach ($arUrlopRodzaj as $urlopRodzaj) {
+            $manager->persist($urlopRodzaj);
         }
         $manager->flush();
     }
@@ -38,16 +44,16 @@ class LoadUrlopRodzajData implements FixtureInterface
     /**
      * @return array
      */
-    public function tworzenieRodzaje()
+    public function getArrayUrlopRodzaj()
     {
-        $return = [];
+        $arUrlopRodzaj = [];
         foreach ($this->ar_rodzaje_urlopow as $key => $ar_rodzaj_urlopu) {
-            $return[$key] = new UrlopRodzaj();
-            $return[$key]->setLicznik($ar_rodzaj_urlopu[0]);
-            $return[$key]->setNazwa($ar_rodzaj_urlopu[1]);
+            $arUrlopRodzaj[$key] = new UrlopRodzaj();
+            $arUrlopRodzaj[$key]->setLicznik($ar_rodzaj_urlopu[0]);
+            $arUrlopRodzaj[$key]->setNazwa($ar_rodzaj_urlopu[1]);
         }
 
-        return $return;
+        return $arUrlopRodzaj;
     }
 
 }
