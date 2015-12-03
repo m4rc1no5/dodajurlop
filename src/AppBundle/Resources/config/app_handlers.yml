@@ -2,22 +2,22 @@ services:
   # organizacja
   app.command.organizacja.dodaj:
     class: AppBundle\CommandBus\Organizacja\DodajOrganizacjeCommand
-    arguments: [security.token_storage]
+    arguments: ["@security.token_storage"]
   app.handler.organizacja.dodaj:
     class: AppBundle\CommandBus\Organizacja\DodajOrganizacjeCommandHandler
-    arguments: [app.repository.organizacja]
+    arguments: ["@app.repository.organizacja"]
     tags: [{ name: command_handler, handles: AppBundle\CommandBus\Organizacja\DodajOrganizacjeCommand }]
 
   # pracownik
   app.command.pracownik.dodaj:
     class: AppBundle\CommandBus\Pracownik\DodajPracownikaCommand
-    arguments: [security.token_storage]
+    arguments: ["@security.token_storage"]
   app.handler.pracownik.dodaj:
     class: AppBundle\CommandBus\Pracownik\DodajPracownikaCommandHandler
-    arguments: [app.repository.pracownik]
+    arguments: ["@app.repository.pracownik"]
     tags: [{ name: command_handler, handles: AppBundle\CommandBus\Pracownik\DodajPracownikaCommand }]
 
   # urlop
   app.command.urlop.dodaj:
     class: AppBundle\CommandBus\Urlop\DodajUrlopCommand
-    arguments: [security.token_storage]
+    arguments: ["@security.token_storage"]

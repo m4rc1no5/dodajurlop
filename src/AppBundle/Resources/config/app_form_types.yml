@@ -4,18 +4,18 @@ services:
     tags: [{ name: form.type, alias: organizacja }]
   app.form.type.organizacja_simple:
     class: AppBundle\Form\Type\OrganizacjaSimpleType
-    arguments: [app.repository.organizacja, security.token_storage]
+    arguments: ["@app.repository.organizacja", "@security.token_storage"]
     tags: [{ name: form.type, alias: organizacja_simple }]
   app.form.type.pracownik:
     class: AppBundle\Form\Type\PracownikType
     tags: [{ name: form.type, alias: pracownik }]
   app.form.type.pracownik_simple:
     class: AppBundle\Form\Type\PracownikSimpleType
-    arguments: [app.repository.pracownik, security.token_storage]
+    arguments: ["@app.repository.pracownik", "@security.token_storage"]
     tags: [{ name: form.type, alias: pracownik_simple }]
   app.form.type.urlop_dodaj:
     class: AppBundle\Form\Type\UrlopRodzajType
-    arguments: [app.repository.urlop_rodzaj]
+    arguments: ["@app.repository.urlop_rodzaj"]
     tags: [{ name: form.type, alias: urlop_rodzaj }]
   app.form.type.urlop:
     class: AppBundle\Form\Type\UrlopType

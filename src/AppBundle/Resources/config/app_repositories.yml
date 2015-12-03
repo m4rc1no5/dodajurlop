@@ -1,10 +1,10 @@
 services:
   app.repository.organizacja:
     class: AppBundle\Repository\Doctrine\OrganizacjaRepository
-    arguments: [doctrine.orm.entity_manager]
+    arguments: ["@doctrine.orm.entity_manager"]
   app.repository.pracownik:
     class: AppBundle\Repository\Doctrine\PracownikRepository
-    arguments: [doctrine.orm.entity_manager]
+    arguments: ["@doctrine.orm.entity_manager"]
   app.repository.urlop_rodzaj:
     class: AppBundle\Repository\Doctrine\UrlopRodzajRepository
-    arguments: [doctrine.orm.entity_manager]
+    arguments: ["@doctrine.orm.entity_manager"]
