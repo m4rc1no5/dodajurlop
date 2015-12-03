@@ -20,3 +20,6 @@ services:
   app.form.type.urlop:
     class: AppBundle\Form\Type\UrlopType
     tags: [{ name: form.type, alias: urlop }]
+  app.form.type.date_with_datepicker:
+    class: AppBundle\Form\Type\DateWithDatepickerType
+    tags: [{ name: form.type, alias: date_with_datepicker }]
