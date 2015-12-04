@@ -26,4 +26,9 @@ class PracownikRepositoryTest extends TestowanieRepository
         $this->zmienaAdd = new Pracownik(new User(), 'Imie', 'Nazw', 'Email', 12);
     }
 
+    public function testFindAllByUser()
+    {
+        $this->assertEquals('Zwraca rezultat', $this->repository->findAllByUser(new User()));
+    }
+
 }
