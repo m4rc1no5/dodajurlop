@@ -24,6 +24,7 @@ class UrlopRodzajTest extends TestCase
     {
         $this->urlop_rodzaj->setNazwa('Urlop rodzaj');
         $this->assertEquals('Urlop rodzaj', $this->urlop_rodzaj->getNazwa());
+        $this->assertEquals('Urlop rodzaj', $this->urlop_rodzaj);
 
         $this->assertNotEquals('Rodzaj urlop', $this->urlop_rodzaj->getNazwa());
     }
