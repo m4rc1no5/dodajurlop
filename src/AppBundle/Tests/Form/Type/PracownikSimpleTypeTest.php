@@ -9,10 +9,12 @@
 namespace AppBundle\Tests\Form\Type;
 
 
+use AppBundle\Entity\User;
 use AppBundle\Form\Type\PracownikSimpleType;
 use AppBundle\Repository\Doctrine\PracownikRepository;
 use Symfony\Component\Form\Test\TypeTestCase;
 use Mockery as M;
+use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorage;
 use Symfony\Component\Security\Core\Authentication\Token\UsernamePasswordToken;
 
@@ -42,7 +44,7 @@ class PracownikSimpleTypeTest extends TypeTestCase
         $p = $this->getPracownikSimpleType();
 
         // parent
-        $this->assertEquals('entity', $p->getParent());
+        $this->assertEquals('Symfony\Bridge\Doctrine\Form\Type\EntityType', $p->getParent());
 
         // name
         $this->assertEquals('pracownik_simple', $p->getBlockPrefix());
@@ -51,10 +53,19 @@ class PracownikSimpleTypeTest extends TypeTestCase
         $this->assertEquals('AppBundle\Entity\Pracownik', $p::DATA_CLASS);
     }
 
+    public function testConfigureOptions()
+    {
+        $o = $this->getPracownikSimpleType();
+        $resolver = M::mock(OptionsResolver::class);
+        $resolver->shouldReceive('setDefaults')->with(['class' => 'AppBundle\Entity\Pracownik', 'choices' => 'choices']);
+        $o->configureOptions($resolver);
+    }
+
     private function getPracownikSimpleType()
     {
-        $this->token->shouldReceive('getUser')->once();
+        $this->token->shouldReceive('getUser')->once()->andReturn(new User());
         $this->tokenStorage->shouldReceive('getToken')->once()->andReturn($this->token);
+        $this->pracownikRepository->shouldReceive('findAllByUser')->with(User::class)->andReturn('choices');
         return new PracownikSimpleType($this->pracownikRepository, $this->tokenStorage);
     }
 }

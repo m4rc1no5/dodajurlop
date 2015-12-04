@@ -11,6 +11,7 @@ namespace AppBundle\Form\Type;
 
 use AppBundle\Entity\User;
 use AppBundle\Repository\IPracownikRepository;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorage;
@@ -53,7 +54,7 @@ class PracownikSimpleType extends AbstractType
      */
     public function getParent()
     {
-        return 'entity';
+        return EntityType::class;
     }
 
     /**

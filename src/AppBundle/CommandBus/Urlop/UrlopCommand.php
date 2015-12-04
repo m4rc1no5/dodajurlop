@@ -169,4 +169,12 @@ abstract class UrlopCommand extends Command
         $this->rok = $rok;
     }
 
+    /**
+     * @return User
+     */
+    public function getUser()
+    {
+        return $this->user;
+    }
+
 }

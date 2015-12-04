@@ -27,4 +27,9 @@ class OrganizacjaRepositoryTest extends TestowanieRepository
         $this->zmienaAdd = new Organizacja(new User(), 'organizacja', 'pełna nazwa');
     }
 
+    public function testFindAllByUser()
+    {
+        $this->assertEquals('Zwraca rezultat', $this->repository->findAllByUser(new User()));
+    }
+
 }

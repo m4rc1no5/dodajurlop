@@ -32,7 +32,7 @@ class UrlopRodzajTypeTest extends TypeTestCase
         $ur = $this->getUrlopRodzajType();
 
         // parent
-        $this->assertEquals('entity', $ur->getParent());
+        $this->assertEquals('Symfony\Bridge\Doctrine\Form\Type\EntityType', $ur->getParent());
 
         // name
         $this->assertEquals('urlop_rodzaj', $ur->getBlockPrefix());
