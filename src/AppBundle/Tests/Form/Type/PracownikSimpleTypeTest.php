@@ -44,7 +44,7 @@ class PracownikSimpleTypeTest extends TypeTestCase
         $p = $this->getPracownikSimpleType();
 
         // parent
-        $this->assertEquals('entity', $p->getParent());
+        $this->assertEquals('Symfony\Bridge\Doctrine\Form\Type\EntityType', $p->getParent());
 
         // name
         $this->assertEquals('pracownik_simple', $p->getBlockPrefix());

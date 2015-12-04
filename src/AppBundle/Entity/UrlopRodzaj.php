@@ -55,4 +55,12 @@ class UrlopRodzaj extends Entity
         $this->nazw = $nazw;
     }
 
+    /**
+     * @return string
+     */
+    public function __toString()
+    {
+        return $this->getNazwa();
+    }
+
 }

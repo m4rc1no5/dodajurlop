@@ -10,6 +10,7 @@ namespace AppBundle\Form\Type;
 
 
 use AppBundle\Repository\IUrlopRodzajRepository;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -35,13 +36,13 @@ class UrlopRodzajType extends AbstractType
         $resolver->setDefaults([
             'class' => self::DATA_CLASS,
             'choices' => $this->urlopRodzajRepository->getAll(),
-            'choice_label' => 'getNazwa'
+//            'choice_label' => 'getNazwa'
         ]);
     }
 
     public function getParent()
     {
-        return 'entity';
+        return EntityType::class;
     }
 
     public function getBlockPrefix()

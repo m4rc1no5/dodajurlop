@@ -44,7 +44,7 @@ class OrganizacjaSimpleTypeTest extends TypeTestCase
         $o = $this->getOrganizacjaSimpleType();
 
         // parent
-        $this->assertEquals('entity', $o->getParent());
+        $this->assertEquals('Symfony\Bridge\Doctrine\Form\Type\EntityType', $o->getParent());
 
         // name
         $this->assertEquals('organizacja_simple', $o->getBlockPrefix());

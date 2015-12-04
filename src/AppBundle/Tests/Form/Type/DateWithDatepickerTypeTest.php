@@ -20,7 +20,7 @@ class DateWithDatepickerTypeTest extends TestCase
     public function testParentAndBlockPrefix(){
         $d = $this->getDateWithDatepickerType();
 
-        $this->assertEquals('date', $d->getParent());
+        $this->assertEquals('Symfony\Component\Form\Extension\Core\Type\DateType', $d->getParent());
         $this->assertEquals('date_with_datepicker', $d->getBlockPrefix());
     }
 
