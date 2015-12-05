@@ -9,6 +9,9 @@
 namespace AppBundle\Tests\Form\Type;
 
 
+use AppBundle\Entity\Organizacja;
+use AppBundle\Entity\Pracownik;
+use AppBundle\Entity\UrlopRodzaj;
 use AppBundle\Entity\User;
 use AppBundle\Form\Type\OrganizacjaSimpleType;
 use AppBundle\Form\Type\PracownikSimpleType;
@@ -65,7 +68,11 @@ class UrlopTypeTest extends TypeTestCase
         $entityType = new EntityType($mockRegistry);
 
         $repoUrlopRodzaj = M::mock(UrlopRodzajRepository::class);
-        $repoUrlopRodzaj->shouldReceive('getAll')->andReturn(['zwrócił to co miał']);
+        $urlopRodzaj = M::mock(UrlopRodzaj::class);
+        $urlopRodzaj->shouldReceive('getNazwa')->once();
+        $repoUrlopRodzaj->shouldReceive('getAll')->andReturn([
+            $urlopRodzaj
+        ]);
         $urlop = new UrlopRodzajType($repoUrlopRodzaj);
 
         $repoPracownik = M::mock(IPracownikRepository::class);
@@ -87,13 +94,13 @@ class UrlopTypeTest extends TypeTestCase
 
     public function testSubmitValidDataDodajUrlop()
     {
+
         $formData = [
             'dataDo'            => new \DateTime('2015-01-10'),
             'dataOd'            => new \DateTime('2010-01-10'),
-            'organizacja'       => 'Organizacja',
-            'pracownik'         => 'Pracownik',
-            'urlopRodzaj'       => 'Urlop zwykły'
-
+            'organizacja'       => M::mock(Organizacja::class),
+            'pracownik'         => M::mock(Pracownik::class),
+            'urlopRodzaj'       => M::mock(UrlopRodzaj::class)
         ];
 
         // dodajPracownikCommand
@@ -136,4 +143,5 @@ class UrlopTypeTest extends TypeTestCase
     {
         return new UrlopType();
     }
+
 }
