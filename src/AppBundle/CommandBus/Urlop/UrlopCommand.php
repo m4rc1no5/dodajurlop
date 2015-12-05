@@ -14,6 +14,7 @@ use AppBundle\Entity\Organizacja;
 use AppBundle\Entity\Pracownik;
 use AppBundle\Entity\UrlopRodzaj;
 use AppBundle\Entity\User;
+use AppBundle\Repository\Doctrine\PracownikRepository;
 
 abstract class UrlopCommand extends Command
 {
@@ -68,7 +69,7 @@ abstract class UrlopCommand extends Command
     /**
      * @param UrlopRodzaj $urlopRodzaj
      */
-    public function setUrlopRodzaj($urlopRodzaj)
+    public function setUrlopRodzaj(UrlopRodzaj $urlopRodzaj)
     {
         $this->urlopRodzaj = $urlopRodzaj;
     }
@@ -84,7 +85,7 @@ abstract class UrlopCommand extends Command
     /**
      * @param Pracownik $pracownik
      */
-    public function setPracownik($pracownik)
+    public function setPracownik(Pracownik $pracownik)
     {
         $this->pracownik = $pracownik;
     }
@@ -100,7 +101,7 @@ abstract class UrlopCommand extends Command
     /**
      * @param Organizacja $organizacja
      */
-    public function setOrganizacja($organizacja)
+    public function setOrganizacja(Organizacja $organizacja)
     {
         $this->organizacja = $organizacja;
     }
@@ -116,7 +117,7 @@ abstract class UrlopCommand extends Command
     /**
      * @param \DateTime $dataOd
      */
-    public function setDataOd($dataOd)
+    public function setDataOd(\DateTime $dataOd)
     {
         $this->dataOd = $dataOd;
     }
@@ -132,7 +133,7 @@ abstract class UrlopCommand extends Command
     /**
      * @param \DateTime $dataDo
      */
-    public function setDataDo($dataDo)
+    public function setDataDo(\DateTime $dataDo)
     {
         $this->dataDo = $dataDo;
     }
