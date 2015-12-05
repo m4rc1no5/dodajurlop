@@ -11,6 +11,7 @@ namespace AppBundle\Form\Type;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 
 class UrlopType extends AbstractType
 {
@@ -22,6 +23,8 @@ class UrlopType extends AbstractType
             ->add('organizacja', OrganizacjaSimpleType::class)
             ->add('dataOd', DateWithDatepickerType::class)
             ->add('dataDo', DateWithDatepickerType::class)
+            ->add('ilosc_dni', IntegerType::class)
+            ->add('rok', IntegerType::class)
             ;
     }
 

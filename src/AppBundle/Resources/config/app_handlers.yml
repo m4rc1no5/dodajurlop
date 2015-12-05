@@ -21,3 +21,7 @@ services:
   app.command.urlop.dodaj:
     class: AppBundle\CommandBus\Urlop\DodajUrlopCommand
     arguments: ["@security.token_storage"]
+  app.handler.urlop.dodaj:
+    class: AppBundle\CommandBus\Urlop\DodajUrlopCommandHandler
+    arguments: ["@app.repository.urlop"]
+    tags: [{ name: command_handler, handles: AppBundle\CommandBus\Urlop\DodajUrlopCommand }]
