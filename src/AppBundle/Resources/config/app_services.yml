@@ -10,6 +10,11 @@ services:
     arguments: ["@monolog.logger.ajax", %kernel.debug%]
     tags: [{ name: kernel.event_subscriber}]
 
+  app.listener.registration_confirmed:
+    class: AppBundle\EventListener\RegistrationConfirmedListener
+    arguments: ["@monolog.logger.ajax", %kernel.debug%, "@router"]
+    tags: [{ name: kernel.event_subscriber}]
+
   app.twig.font_awesome_extension:
     class: AppBundle\Twig\FontAwesomeExtension
     tags:
