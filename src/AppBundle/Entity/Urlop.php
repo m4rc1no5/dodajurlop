@@ -79,4 +79,84 @@ class Urlop extends Entity
      * @ORM\Column(type="integer")
      */
     protected $rok;
+
+    /**
+     * Urlop constructor.
+     * @param User $user
+     * @param UrlopRodzaj $urlopRodzaj
+     * @param Pracownik $pracownik
+     * @param Organizacja $organizacja
+     * @param \DateTime $dataOd
+     * @param \DateTime $dataDo
+     * @param string $iloscDni
+     * @param int $rok
+     */
+    public function __construct(User $user, UrlopRodzaj $urlopRodzaj, Pracownik $pracownik, Organizacja $organizacja, \DateTime $dataOd, \DateTime $dataDo, $iloscDni, $rok)
+    {
+        $this->user = $user;
+        $this->urlopRodzaj = $urlopRodzaj;
+        $this->pracownik = $pracownik;
+        $this->organizacja = $organizacja;
+        $this->dataOd = $dataOd;
+        $this->dataDo = $dataDo;
+        $this->iloscDni = $iloscDni;
+        $this->rok = $rok;
+    }
+
+    /**
+     * @return UrlopRodzaj
+     */
+    public function getUrlopRodzaj()
+    {
+        return $this->urlopRodzaj;
+    }
+
+    /**
+     * @return Pracownik
+     */
+    public function getPracownik()
+    {
+        return $this->pracownik;
+    }
+
+    /**
+     * @return Organizacja
+     */
+    public function getOrganizacja()
+    {
+        return $this->organizacja;
+    }
+
+    /**
+     * @return \DateTime
+     */
+    public function getDataOd()
+    {
+        return $this->dataOd;
+    }
+
+    /**
+     * @return \DateTime
+     */
+    public function getDataDo()
+    {
+        return $this->dataDo;
+    }
+
+    /**
+     * @return string
+     */
+    public function getIloscDni()
+    {
+        return $this->iloscDni;
+    }
+
+    /**
+     * @return int
+     */
+    public function getRok()
+    {
+        return $this->rok;
+    }
+
 }

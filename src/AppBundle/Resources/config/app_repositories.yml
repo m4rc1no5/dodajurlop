@@ -8,3 +8,6 @@ services:
   app.repository.urlop_rodzaj:
     class: AppBundle\Repository\Doctrine\UrlopRodzajRepository
     arguments: ["@doctrine.orm.entity_manager"]
+  app.repository.urlop:
+    class: AppBundle\Repository\Doctrine\UrlopRepository
+    arguments: ["@doctrine.orm.entity_manager"]

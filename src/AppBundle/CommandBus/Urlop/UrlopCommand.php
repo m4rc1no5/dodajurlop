@@ -14,7 +14,7 @@ use AppBundle\Entity\Organizacja;
 use AppBundle\Entity\Pracownik;
 use AppBundle\Entity\UrlopRodzaj;
 use AppBundle\Entity\User;
-use AppBundle\Repository\Doctrine\PracownikRepository;
+use Symfony\Component\Validator\Constraints as Assert;
 
 abstract class UrlopCommand extends Command
 {
@@ -25,36 +25,58 @@ abstract class UrlopCommand extends Command
 
     /**
      * @var UrlopRodzaj
+     *
+     * @Assert\NotBlank()
      */
     protected $urlopRodzaj;
 
     /**
      * @var Pracownik
+     *
+     * @Assert\NotBlank()
      */
     protected $pracownik;
 
     /**
      * @var Organizacja
+     *
+     * @Assert\NotBlank()
      */
     protected $organizacja;
 
     /**
      * @var \DateTime
+     *
+     * @Assert\NotBlank()
      */
     protected $dataOd;
 
     /**
      * @var \DateTime
+     *
+     * @Assert\NotBlank()
      */
     protected $dataDo;
 
     /**
      * @var int
+     *
+     * @Assert\NotBlank()
+     * @Assert\Range(
+     *     min = 1,
+     *     max = 300
+     * )
      */
     protected $iloscDni;
 
     /**
      * @var int
+     *
+     * @Assert\NotBlank()
+     * @Assert\Range(
+     *     min = 1970,
+     *     max = 2020
+     * )
      */
     protected $rok;
 
@@ -117,7 +139,7 @@ abstract class UrlopCommand extends Command
     /**
      * @param \DateTime $dataOd
      */
-    public function setDataOd(\DateTime $dataOd)
+    public function setDataOd($dataOd)
     {
         $this->dataOd = $dataOd;
     }
@@ -133,7 +155,7 @@ abstract class UrlopCommand extends Command
     /**
      * @param \DateTime $dataDo
      */
-    public function setDataDo(\DateTime $dataDo)
+    public function setDataDo($dataDo)
     {
         $this->dataDo = $dataDo;
     }
