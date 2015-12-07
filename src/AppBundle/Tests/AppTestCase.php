@@ -8,8 +8,9 @@
 
 namespace AppBundle\Tests;
 
-
+use Doctrine\ORM\QueryBuilder;
 use Symfony\Bundle\FrameworkBundle\Tests\TestCase;
+use Mockery as M;
 
 abstract class AppTestCase extends TestCase
 {
@@ -29,5 +30,21 @@ abstract class AppTestCase extends TestCase
         $method->setAccessible(true);
 
         return $method->invokeArgs($object, $parameters);
+    }
+
+    protected function getMockQueryBuilder()
+    {
+        $qbuilder = M::mock(QueryBuilder::class);
+        $qbuilder->shouldReceive('select')->andReturn($qbuilder);
+        $qbuilder->shouldReceive('from')->andReturn($qbuilder);
+        $qbuilder->shouldReceive('where')->andReturn($qbuilder);
+        $qbuilder->shouldReceive('setParameter')->andReturn($qbuilder);
+        $qbuilder->shouldReceive('andWhere')->andReturn($qbuilder);
+        $qbuilder->shouldReceive('getQuery')->andReturn($qbuilder);
+        $qbuilder->shouldReceive('orderBy')->andReturn($qbuilder);
+        $qbuilder->shouldReceive('addOrderBy')->andReturn($qbuilder);
+        $qbuilder->shouldReceive('getResult')->andReturn('Zwraca rezultat');
+
+        return $qbuilder;
     }
 }

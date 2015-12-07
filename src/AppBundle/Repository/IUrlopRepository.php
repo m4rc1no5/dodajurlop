@@ -10,8 +10,11 @@ namespace AppBundle\Repository;
 
 
 use AppBundle\Entity\Urlop;
+use AppBundle\Entity\User;
 
 interface IUrlopRepository
 {
+    public function findAllByUser(User $user);
+
     public function add(Urlop $urlop);
 }

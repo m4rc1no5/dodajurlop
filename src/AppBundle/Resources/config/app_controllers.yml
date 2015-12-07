@@ -15,7 +15,7 @@ services:
       - [setUnitOfWork, ["@unit_of_work"]]
   app.controller.urlop:
     class: AppBundle\Controller\UrlopController
-    arguments: ["@app.command.urlop.dodaj", "@command_bus"]
+    arguments: ["@app.repository.urlop", "@app.command.urlop.dodaj", "@command_bus"]
     calls:
       - [setContainer, ["@service_container"]]
       - [setUnitOfWork, ["@unit_of_work"]]

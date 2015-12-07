@@ -7,6 +7,35 @@
     {% if(urlopy is empty) %}
         <div>{{ 'app.urlopy.brak'|trans }}</div>
     {% else %}
-        :)
+        {{ block('table') }}
     {% endif %}
+{% endblock %}
+
+{# tabelka #}
+{% block tableHeadRow %}
+    <td class="col-md-1">#</td>
+    <td>Rok</td>
+    <td>Pracownik</td>
+    <td>Organizacja</td>
+    <td>Data początku</td>
+    <td>Data końca</td>
+    <td>Ilość dni</td>
+    <td>Rodzaj</td>
+{% endblock %}
+
+{% block tableBody %}
+    {% for urlop in urlopy %}
+        <tr>{{ block('tableBodyRow') }}</tr>
+    {% endfor %}
+{% endblock %}
+
+{% block tableBodyRow %}
+    <td>{{ urlop.id }}</td>
+    <td>{{ urlop.rok }}</td>
+    <td>{{ urlop.pracownik }}</td>
+    <td>{{ urlop.organizacja }}</td>
+    <td>{{ urlop.dataOd.format('Y-m-d') }}</td>
+    <td>{{ urlop.dataDo.format('Y-m-d') }}</td>
+    <td>{{ urlop.iloscDni }}</td>
+    <td>{{ urlop.urlopRodzaj }}</td>
 {% endblock %}
