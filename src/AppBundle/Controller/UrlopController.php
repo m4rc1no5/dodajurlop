@@ -10,6 +10,7 @@ namespace AppBundle\Controller;
 
 use AppBundle\CommandBus\Urlop\DodajUrlopCommand;
 use AppBundle\Form\Type\UrlopType;
+use AppBundle\Repository\IUrlopRepository;
 use AppBundle\Response\RefererRedirectResponse;
 use Component\HasUnitOfWorkTrait;
 use Component\IHasUnitOfWork;
@@ -29,6 +30,9 @@ class UrlopController extends Controller implements IHasUnitOfWork
 {
     use HasUnitOfWorkTrait;
 
+    /** @var IUrlopRepository */
+    private $urlopRepository;
+
     /** @var DodajUrlopCommand */
     private $dodajUrlopCommand;
 
@@ -37,11 +41,14 @@ class UrlopController extends Controller implements IHasUnitOfWork
 
     /**
      * UrlopController constructor.
+     *
+     * @param IUrlopRepository $urlopRepository
      * @param DodajUrlopCommand $dodajUrlopCommand
      * @param MessageBus $commandBus
      */
-    public function __construct(DodajUrlopCommand $dodajUrlopCommand, MessageBus $commandBus)
+    public function __construct(IUrlopRepository $urlopRepository, DodajUrlopCommand $dodajUrlopCommand, MessageBus $commandBus)
     {
+        $this->urlopRepository = $urlopRepository;
         $this->dodajUrlopCommand = $dodajUrlopCommand;
         $this->commandBus = $commandBus;
     }
@@ -54,8 +61,10 @@ class UrlopController extends Controller implements IHasUnitOfWork
      */
     public function indexAction()
     {
+        $urlopy = $this->urlopRepository->findAllByUser($this->getUser());
+
         return [
-            'urlopy' => ''
+            'urlopy' => $urlopy
         ];
     }
 

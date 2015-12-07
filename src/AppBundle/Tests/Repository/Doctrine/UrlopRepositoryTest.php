@@ -18,6 +18,7 @@ use AppBundle\Repository\Doctrine\UrlopRepository;
 use AppBundle\Tests\AppTestCase;
 use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\Mapping\ClassMetadata;
+use Doctrine\ORM\QueryBuilder;
 use Mockery as M;
 
 class UrlopRepositoryTest extends AppTestCase
@@ -54,6 +55,16 @@ class UrlopRepositoryTest extends AppTestCase
 
         $this->em->shouldReceive('persist')->once();
         $urlopRepository->add($urlop);
+    }
+
+    public function testFindAllByUser()
+    {
+        $urlopRepository = $this->getUrlopRepository();
+
+        $qbuilder = $this->getMockQueryBuilder();
+        $this->em->shouldReceive('createQueryBuilder')->andReturn($qbuilder);
+
+        $urlopRepository->findAllByUser(new User());
     }
 
     public function testEntityClassName()

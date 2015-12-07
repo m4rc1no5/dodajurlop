@@ -12,6 +12,7 @@ namespace AppBundle\Tests\Controller;
 use AppBundle\CommandBus\Urlop\DodajUrlopCommand;
 use AppBundle\Controller\UrlopController;
 use AppBundle\Entity\User;
+use AppBundle\Repository\Doctrine\UrlopRepository;
 use Component\UnitOfWork;
 use SimpleBus\Message\Bus\MessageBus;
 use Symfony\Bundle\FrameworkBundle\Tests\TestCase;
@@ -25,6 +26,8 @@ use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInt
 class UrlopControllerTest extends TestCase
 {
 
+    /** @var M\Mock */
+    private $urlopRepository;
     /** @var M\Mock */
     private $dodajUrlopCommand;
     /** @var M\Mock */
@@ -46,6 +49,7 @@ class UrlopControllerTest extends TestCase
 
     public function setUp()
     {
+        $this->urlopRepository = M::mock(UrlopRepository::class);
         $this->dodajUrlopCommand = M::mock(DodajUrlopCommand::class);
         $this->messageBus = M::mock(MessageBus::class);
         $this->container = M::mock(ContainerInterface::class);
@@ -60,6 +64,15 @@ class UrlopControllerTest extends TestCase
     public function testIndexAction()
     {
         $controller = $this->getUrlopController();
+
+        $controller->setContainer($this->container);
+        $controller->setUnitOfWork($this->unit_of_work);
+
+        $this->container->shouldReceive('has')->with('security.token_storage')->once()->andReturn(true);
+        $this->token->shouldReceive('getUser')->once()->andReturn($this->user_zalogowany);
+        $this->token_storage->shouldReceive('getToken')->once()->andReturn($this->token);
+        $this->container->shouldReceive('get')->with('security.token_storage')->once()->andReturn($this->token_storage);
+        $this->urlopRepository->shouldReceive('findAllByUser');
 
         $ar_dane = $controller->indexAction();
 
@@ -130,7 +143,7 @@ class UrlopControllerTest extends TestCase
 
     private function getUrlopController()
     {
-        return new UrlopController($this->dodajUrlopCommand, $this->messageBus);
+        return new UrlopController($this->urlopRepository, $this->dodajUrlopCommand, $this->messageBus);
     }
 
 }
