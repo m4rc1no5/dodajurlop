@@ -27,7 +27,7 @@ class DodajUrlopCommandHandlerTest extends TestCase
     {
         $user = new User;
         $urlopRodzaj = new UrlopRodzaj();
-        $pracownik = new Pracownik($user, 'Marcin', 'Zaremba', 'marcin.zaremba@gmail.com', 20);
+        $pracownik = new Pracownik($user, 'Marcin', 'Zaremba', 'marcin.zaremba@gmail.com', 20, M::mock(Organizacja::class));
         $orgarnizacja = new Organizacja($user, 'ABC', 'ABC Sp. z. o.o.');
         $date = new \DateTime();
 

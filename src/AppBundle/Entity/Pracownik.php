@@ -64,6 +64,14 @@ class Pracownik extends Entity
      */
     protected $urlopy;
 
+    /**
+     * @var Organizacja
+     *
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Organizacja", inversedBy="urlopy")
+     * @ORM\JoinColumn(name="organizacja_id", referencedColumnName="id")
+     */
+    protected $organizacja;
+
 
     /**
      * @param User $user
@@ -71,14 +79,16 @@ class Pracownik extends Entity
      * @param string $nazw
      * @param string $email
      * @param int $ilosc_dni_wolnych
+     * @param Organizacja $organizacja
      */
-    public function __construct(User $user, $imie, $nazw, $email, $ilosc_dni_wolnych)
+    public function __construct(User $user, $imie, $nazw, $email, $ilosc_dni_wolnych, $organizacja)
     {
         $this->user = $user;
         $this->imie = $imie;
         $this->nazw = $nazw;
         $this->email = $email;
         $this->ilosc_dni_wolnych = $ilosc_dni_wolnych;
+        $this->organizacja = $organizacja;
     }
 
     /**
@@ -167,5 +177,21 @@ class Pracownik extends Entity
     public function getUser()
     {
         return $this->user;
+    }
+
+    /**
+     * @return Organizacja
+     */
+    public function getOrganizacja()
+    {
+        return $this->organizacja;
+    }
+
+    /**
+     * @param Organizacja $organizacja
+     */
+    public function setOrganizacja($organizacja)
+    {
+        $this->organizacja = $organizacja;
     }
 }

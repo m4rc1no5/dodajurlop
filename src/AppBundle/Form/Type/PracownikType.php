@@ -27,6 +27,7 @@ class PracownikType extends AbstractType
             ->add('imie', TextType::class)
             ->add('nazw', TextType::class)
             ->add('email', TextType::class)
+            ->add('organizacja', OrganizacjaSimpleType::class)
             ->add('iloscDniWolnych', IntegerType::class)
         ;
     }

@@ -10,6 +10,7 @@ namespace AppBundle\CommandBus\Pracownik;
 
 
 use AppBundle\CommandBus\Command;
+use AppBundle\Entity\Organizacja;
 use AppBundle\Entity\User;
 use Symfony\Component\Validator\Constraints as Assert;
 
@@ -52,6 +53,13 @@ abstract class PracownikCommand extends Command
      * @var User
      */
     protected $user;
+
+    /**
+     * @var Organizacja
+     *
+     * @Assert\NotBlank()
+     */
+    protected $organizacja;
 
     /**
      * @return string
@@ -123,6 +131,22 @@ abstract class PracownikCommand extends Command
     public function getUser()
     {
         return $this->user;
+    }
+
+    /**
+     * @return Organizacja
+     */
+    public function getOrganizacja()
+    {
+        return $this->organizacja;
+    }
+
+    /**
+     * @param Organizacja $organizacja
+     */
+    public function setOrganizacja(Organizacja $organizacja)
+    {
+        $this->organizacja = $organizacja;
     }
 
 

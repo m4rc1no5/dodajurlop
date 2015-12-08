@@ -8,9 +8,11 @@
 namespace AppBundle\Tests\Repository\Doctrine;
 
 
+use AppBundle\Entity\Organizacja;
 use AppBundle\Entity\Pracownik;
 use AppBundle\Repository\Doctrine\PracownikRepository;
 use AppBundle\Entity\User;
+use Mockery as M;
 
 class PracownikRepositoryTest extends TestowanieRepository
 {
@@ -23,7 +25,7 @@ class PracownikRepositoryTest extends TestowanieRepository
     {
         parent::setUp();
         $this->repository = new PracownikRepository($this->entityManager);
-        $this->zmienaAdd = new Pracownik(new User(), 'Imie', 'Nazw', 'Email', 12);
+        $this->zmienaAdd = new Pracownik(new User(), 'Imie', 'Nazw', 'Email', 12, M::mock(Organizacja::class));
     }
 
     public function testFindAllByUser()

@@ -14,9 +14,10 @@
 {# tabelka #}
 {% block tableHeadRow %}
     <td class="col-md-1">#</td>
-    <td class="col-md-2">{{ 'Imie'|trans }}</td>
+    <td class="col-md-1">{{ 'Imie'|trans }}</td>
     <td class="col-md-2">{{ 'Nazw'|trans }}</td>
-    <td class="col-md-3">{{ 'Email'|trans }}</td>
+    <td class="col-md-2">{{ 'Email'|trans }}</td>
+    <td class="col-md-2">{{ 'Organizacja'|trans }}</td>
     <td class="col-md-2">{{ 'ilosc_dni_wolnych'|trans }}</td>
 {% endblock %}
 
@@ -31,11 +32,13 @@
     <td>{{ pracownik.imie }}</td>
     <td>{{ pracownik.nazw }}</td>
     <td>{{ pracownik.email }}</td>
+    <td>{{ pracownik.organizacja }}</td>
     <td>{{ pracownik.IloscDniWolnych }}</td>
     <td>
         <a class="btn btn-primary" data-toggle="bootbox-replace" data-width="800" href="{{ path('pracownik.edytuj', {'id': pracownik.id}) }}">{{ 'app.pracownik.edytuj'|trans|capitalize }}</a>
-    </td>
-    <td>
         <a class="btn btn-primary" href="{{ path('pracownik.delete', {'id': pracownik.id}) }}">{{ 'app.pracownik.delete'|trans|capitalize }}</a>
     </td>
+    {#<td>#}
+        {#<a class="btn btn-primary" href="{{ path('pracownik.delete', {'id': pracownik.id}) }}">{{ 'app.pracownik.delete'|trans|capitalize }}</a>#}
+    {#</td>#}
 {% endblock %}

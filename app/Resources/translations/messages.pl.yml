@@ -5,7 +5,9 @@ Pnazwa: Pełna nazwa
 Imie: Imie
 Nazw: Nazwisko
 Email: Email
+Organizacja: Organizacja
 ilosc_dni_wolnych: Ilosc dni wolnych
+
 
 #FOSUserBundle
 layout:
