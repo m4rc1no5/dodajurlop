@@ -7,7 +7,13 @@ Nazw: Nazwisko
 Email: Email
 Organizacja: Organizacja
 ilosc_dni_wolnych: Ilosc dni wolnych
-
+Rok: Rok
+Data od: Data początku
+Data do: Data końca
+Urlop rodzaj: Rodzaj urlopu
+Pracownik: Pracownik
+Ilosc dni: Ilość dni wykorzystanych
+Ilosc dni wolnych: Ilość dni wolnych
 
 #FOSUserBundle
 layout:
