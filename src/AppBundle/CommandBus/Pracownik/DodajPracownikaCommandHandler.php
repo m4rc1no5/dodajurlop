@@ -29,7 +29,7 @@ class DodajPracownikaCommandHandler
 
     public function handle(DodajPracownikaCommand $command)
     {
-        $organizacja = new Pracownik($command->getUser(), $command->getImie(), $command->getNazw(), $command->getEmail(), $command->getIloscDniWolnych());
-        $this->pracownikRepository->add($organizacja);
+        $pracownik = new Pracownik($command->getUser(), $command->getImie(), $command->getNazw(), $command->getEmail(), $command->getIloscDniWolnych(), $command->getOrganizacja());
+        $this->pracownikRepository->add($pracownik);
     }
 }

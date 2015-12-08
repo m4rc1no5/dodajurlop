@@ -9,6 +9,7 @@ namespace AppBundle\Tests\CommandBus\Pracownik;
 
 use AppBundle\CommandBus\Pracownik\DodajPracownikaCommand;
 use AppBundle\CommandBus\Pracownik\DodajPracownikaCommandHandler;
+use AppBundle\Entity\Organizacja;
 use AppBundle\Entity\User;
 use AppBundle\Repository\IOrganizacjaRepository;
 use AppBundle\Repository\IPracownikRepository;
@@ -47,5 +48,6 @@ class DodajPracownikaCommandHandlerTest extends \PHPUnit_Framework_TestCase
         $this->command->shouldReceive('getNazw')->once()->andReturn();
         $this->command->shouldReceive('getEmail')->once()->andReturn();
         $this->command->shouldReceive('getIloscDniWolnych')->once()->andReturn();
+        $this->command->shouldReceive('getOrganizacja');
     }
 }
