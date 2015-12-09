@@ -14,11 +14,12 @@
 {# tabelka #}
 {% block tableHeadRow %}
     <td class="col-md-1">#</td>
-    <td class="col-md-1">{{ 'Imie'|trans }}</td>
+    <td class="col-md-2">{{ 'Imie'|trans }}</td>
     <td class="col-md-2">{{ 'Nazw'|trans }}</td>
     <td class="col-md-2">{{ 'Email'|trans }}</td>
     <td class="col-md-2">{{ 'Organizacja'|trans }}</td>
     <td class="col-md-2">{{ 'ilosc_dni_wolnych'|trans }}</td>
+    <td class="col-md-1"></td>
 {% endblock %}
 
 {% block tableBody %}
@@ -34,11 +35,16 @@
     <td>{{ pracownik.email }}</td>
     <td>{{ pracownik.organizacja }}</td>
     <td>{{ pracownik.IloscDniWolnych }}</td>
-    <td>
-        <a class="btn btn-primary" data-toggle="bootbox-replace" data-width="800" href="{{ path('pracownik.edytuj', {'id': pracownik.id}) }}">{{ 'app.pracownik.edytuj'|trans|capitalize }}</a>
-        <a class="btn btn-primary" href="{{ path('pracownik.delete', {'id': pracownik.id}) }}">{{ 'app.pracownik.delete'|trans|capitalize }}</a>
+    <td style="text-align: right;">
+        <div class="btn-group btn-group-xs">
+            <a class="btn btn-default" data-toggle="bootbox-replace" data-width="800" href="{{ path('pracownik.edytuj', {'id': pracownik.id}) }}">{{ 'app.pracownik.edytuj'|trans|capitalize }}</a>
+            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <span class="caret"></span>
+                <span class="sr-only">Toggle Dropdown</span>
+            </button>
+            <ul class="dropdown-menu dropdown-menu-right">
+                <li><a href="{{ path('pracownik.delete', {'id': pracownik.id}) }}">{{ 'app.pracownik.delete'|trans|capitalize }}</a></li>
+            </ul>
+        </div>
     </td>
-    {#<td>#}
-        {#<a class="btn btn-primary" href="{{ path('pracownik.delete', {'id': pracownik.id}) }}">{{ 'app.pracownik.delete'|trans|capitalize }}</a>#}
-    {#</td>#}
 {% endblock %}
