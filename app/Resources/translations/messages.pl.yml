@@ -52,6 +52,8 @@ app:
     brak: Brak pracowników
   urlop:
     dodaj: Dodaj nowy urlop
+    edytuj: Edycja
+    delete: Usuń
   urlopy:
     title: Urlopy
     subtitle: Wolne dni pracowników

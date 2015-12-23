@@ -11,6 +11,7 @@ namespace AppBundle\Tests\Controller;
 
 use AppBundle\CommandBus\Urlop\DodajUrlopCommand;
 use AppBundle\Controller\UrlopController;
+use AppBundle\Entity\Urlop;
 use AppBundle\Entity\User;
 use AppBundle\Repository\Doctrine\UrlopRepository;
 use Component\UnitOfWork;
@@ -46,6 +47,8 @@ class UrlopControllerTest extends TestCase
     private $form;
     /** @var M\Mock */
     private $unit_of_work;
+    /** @var M\Mock */
+    private $urlop;
 
     public function setUp()
     {
@@ -59,6 +62,7 @@ class UrlopControllerTest extends TestCase
         $this->form_factory = M::Mock(FormFactoryInterface::class);
         $this->form = M::Mock(Form::class);
         $this->unit_of_work = M::mock(UnitOfWork::class);
+        $this->urlop = M::mock(Urlop::class);
     }
 
     public function testIndexAction()
@@ -139,6 +143,18 @@ class UrlopControllerTest extends TestCase
         $this->unit_of_work->shouldReceive('commit')->once();
 
         $controller->dodajAction(new Request());
+    }
+
+    public function testDelete()
+    {
+        // prepare
+        //$this->urlop->shouldReceive('getUser')->andReturn($this->user_zalogowany);
+        //$this->user_zalogowany->shouldReceive('getId');
+
+        //$controller = $this->getUrlopController();
+        //$controller->setUnitOfWork($this->unit_of_work);
+
+        //$controller->deleteAction(new Request(), $this->urlop);
     }
 
     private function getUrlopController()

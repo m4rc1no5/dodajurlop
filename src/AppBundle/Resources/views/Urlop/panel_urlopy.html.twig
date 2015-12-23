@@ -21,6 +21,7 @@
     <td>{{ 'Data do'|trans }}</td>
     <td>{{ 'Ilosc dni'|trans }}</td>
     <td>{{ 'Urlop rodzaj'|trans }}</td>
+    <td></td>
 {% endblock %}
 
 {% block tableBody %}
@@ -38,4 +39,7 @@
     <td>{{ urlop.dataDo.format('Y-m-d') }}</td>
     <td>{{ urlop.iloscDni }}</td>
     <td>{{ urlop.urlopRodzaj }}</td>
+    <td>
+        <a href="{{ path('urlop.delete', {'id': urlop.id }) }}">{{ 'app.urlop.delete'|trans }}</a>
+    </td>
 {% endblock %}

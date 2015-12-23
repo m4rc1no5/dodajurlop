@@ -9,6 +9,7 @@
 namespace AppBundle\Controller;
 
 use AppBundle\CommandBus\Urlop\DodajUrlopCommand;
+use AppBundle\Entity\Urlop;
 use AppBundle\Form\Type\UrlopType;
 use AppBundle\Repository\IUrlopRepository;
 use AppBundle\Response\RefererRedirectResponse;
@@ -94,5 +95,22 @@ class UrlopController extends Controller implements IHasUnitOfWork
         return [
             'form' => $form->createView()
         ];
+    }
+
+    /**
+     * @Route("/delete/{id}", name="urlop.delete")
+     *
+     * @param Request $request
+     * @param Urlop $urlop
+     * @return RefererRedirectResponse
+     */
+    public function deleteAction(Request $request, Urlop $urlop)
+    {
+        if($urlop->getUser()->getId() == $this->getUser()->getId()){
+            $urlop->setDel(true);
+            $this->unitOfWork->commit();
+        }
+
+        return new RefererRedirectResponse($request);
     }
 }

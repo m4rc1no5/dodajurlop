@@ -104,6 +104,14 @@ class Urlop extends Entity
     }
 
     /**
+     * @return User
+     */
+    public function getUser()
+    {
+        return $this->user;
+    }
+
+    /**
      * @return UrlopRodzaj
      */
     public function getUrlopRodzaj()
